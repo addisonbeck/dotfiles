@@ -311,6 +311,9 @@
 
     " Navigation
       Plug 'junegunn/fzf', { 'do': './install --all' }    " Fuzzy search (may require command line tool FZF)
+      Plug 'yuki-ycino/fzf-preview.vim'
+        let g:fzf_preview_use_dev_icons = 1
+        nnoremap <silent><C-p> :FzfPreviewGitFiles<CR>
 
       Plug 'easymotion/vim-easymotion'                    " Quickly jump to a specific place in the current buffer
         nmap go <Plug>(easymotion-jumptoanywhere)
@@ -423,6 +426,11 @@
           let g:startify_bookmarks = [
                 \'C:/Users/beckad/source/repos/Products.RemitSplitting',
                 \'C:/Users/beckad/.config'
+                \]
+        endif
+        if (sysOS == "unix")
+          let g:startify_bookmarks = [
+                \'/mnt/c/Users/beckad/source/repos/Products.RemitSplitting'
                 \]
         endif
 
