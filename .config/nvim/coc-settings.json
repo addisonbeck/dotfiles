@@ -1,0 +1,29 @@
+{
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx"
+  ],
+  "coc.preferences.bracketEnterImprove": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.timeout": 2000,
+  "suggest.detailField": "abbr",
+  "suggest.snippetIndicator": "~",
+  "diagnostic.displayByAle": true,
+  "diagnostic.signOffset": 999999,
+  "suggest.noselect": false,
+  "html.enable": true,
+  "html.filetypes": ["html", "handlebars", "razor", "cshtml", "cshtml.html"],
+  "html.format.enable": true,
+  "explorer.previewAction.strategy": "labeling",
+  "explorer.previewAction.onHover": true,
+  "explorer.openAction.changeDirectory": false,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableVimDevions": true,
+  "explorer.quitOnOpen": true,
+  "explorer.buffer.showHiddenBuffers": true
+}
