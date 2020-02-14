@@ -232,6 +232,7 @@
     " Tools
       Plug 'neoclide/coc.nvim', {'branch': 'release'}     " LSP
         let g:coc_global_extensions=[
+              \'coc-utils',
               \'coc-omnisharp',
               \'coc-explorer',
               \'coc-vetur',
@@ -313,6 +314,7 @@
       Plug 'junegunn/fzf', { 'do': './install --all' }    " Fuzzy search (may require command line tool FZF)
       Plug 'yuki-ycino/fzf-preview.vim'
         let g:fzf_preview_use_dev_icons = 1
+        let g:fzf_preview_fzf_preview_window_option = "bottom:70%"
         nnoremap <silent><C-p> :FzfPreviewGitFiles<CR>
 
       Plug 'easymotion/vim-easymotion'                    " Quickly jump to a specific place in the current buffer
@@ -386,11 +388,8 @@
         endfunction
 
 
-      " Plug 'OmniSharp/omnisharp-vim'                    " Omnisharp?
-        " let g:OmniSharp_server_stdio = 1
-        " let g:OmniSharp_highlight_types = 3
-        " let g:OmniSharp_timeout = 10
-        " let g:OmniSharp_selector_ui = 'fzf'    " Use fzf.vim
+      Plug 'OmniSharp/omnisharp-vim'                    " Omnisharp?
+        let g:OmniSharp_server_stdio = 1
 
         autocmd FileType cs nnoremap <buffer> <Leader>gd :OmniSharpGotoDefinition<CR>
         autocmd FileType cs nnoremap <buffer> <Leader>pd :OmniSharpPreviewDefinition<CR>
