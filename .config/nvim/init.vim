@@ -525,8 +525,8 @@
       \ 't'      : 'Terminal '
       \}
 
-  hi User1 guibg=#b5b5b5 guifg=#262525 gui=bold
-  hi User2 guibg=#b5b5b5 guifg=#000000 gui=bold
+  hi User1 guibg=#b5b5b5 guifg=#262525
+  hi User2 guibg=#b5b5b5 guifg=#000000
   set laststatus=2
   set statusline=
   set statusline+=\%1*\ %{toupper(g:currentmode[mode()])}\ MODE
