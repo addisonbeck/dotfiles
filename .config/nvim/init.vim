@@ -9,7 +9,6 @@
 " This document is a constant work in progress.
 
 
-
 " Gotta get that OS first for dumb windows stuff {{
 
 function! DetectOs()
@@ -35,15 +34,9 @@ endfunction
 
 
 " General Settings {{
-
-" Compatability
-set nocompatible                        " Bop Vi
-set encoding=utf-8                      " Text encoding. Nothing to see here.
-
 " Visual
 filetype on                             " Tell Vim to process filetypes
 syntax on                               " Syntax highlighting
-set showmatch                           " Show matching brackets.
 set number                              " Add line numbers
 set relativenumber                      " Sets the current line as 0
 set wildmode=longest,list               " Bash-like tab completions
@@ -52,14 +45,14 @@ set splitright                          " Horizontal window splits will appear t
 set cmdheight=2                         " Makes the command line a little bigger (this is better for messages)
 set completeopt=longest,menuone,preview " Makes autocomplete work a little more like other editors
 set noshowmode                          " Don't show current mode in message box
-set nocursorline
-set nocursorcolumn                      " Stop highlighting the current column
 set wrap
 set wrapmargin=8
-set linebreak
-set showbreak="..."    set list
+set list
 set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
+set breakat=";?"
+set confirm
+set gdefault
 
 " Search
 set ignorecase                          " Case insensitive matching
@@ -75,15 +68,11 @@ set shiftwidth=4                        " Width for autoindents
 set autoindent                          " Indent a new line the same amount as the line just typed
 set smartindent                         " Try to indent to the correct column automatically
 set shiftround
-filetype plugin indent on               " Allows auto-indenting depending on file type
 
 " Clipboard
 set clipboard+=unnamedplus              " Use system clipboard by default
 
 " Performance & Security
-set nobackup                            " Stop Vim from making backups of files
-set nowritebackup                       " No backups!
-set noswapfile                          " No swaps!
 set hidden                              " Don't unload hidden buffers
 set scrolljump=5                        " Scrolls by 5 lines when trying to navigate off screen
 set lazyredraw                          " Don't redraw the screen if there is nothing to redraw
@@ -96,7 +85,6 @@ set undofile                            " Enable undo persistence across session
 set noautochdir                         " Don't change dirs automatically
 set autoread                            " Auto reload files that have been changed outside vim
 set backspace=indent,eol,start          " make backspace behave in a sane manner
-set keywordprg=:help
 
 " Autocommands
 au FileType json syntax match Comment +\/\/.\+$+      " Proper comment syntax for jsonc
