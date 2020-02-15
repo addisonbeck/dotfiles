@@ -265,21 +265,22 @@ endif
 " Tools
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " LSP
 let g:coc_global_extensions=[
-            \'coc-utils',
-            \'coc-omnisharp',
-            \'coc-explorer',
-            \'coc-vetur',
             \'coc-angular',
-            \'coc-tsserver',
+            \'coc-css',
+            \'coc-explorer',
+            \'coc-highlight',
+            \'coc-html',
             \'coc-json',
             \'coc-lists',
-            \'coc-html',
-            \'coc-css',
+            \'coc-omnisharp',
+            \'coc-prettier',
             \'coc-python',
-            \'coc-highlight',
             \'coc-snippets',
+            \'coc-tsserver',
+            \'coc-utils',
+            \'coc-vetur',
+            \'coc-vimlsp',
             \'coc-yank',
-            \'coc-vimlsp'
             \]
 if (sysOS == "windows")
     let g:coc_extension_root = 'C:/users/beckad/.config/.nvim'
@@ -304,12 +305,18 @@ augroup mygroup
 augroup end
 
 map <Leader>ec :CocConfig<CR>
-" Try and make TAB automatically autocomplete with coc
 inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>CheckBackSpace() ? "\<TAB>" :
-            \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    \ pumvisible() ? coc#_select_confirm() :
+    \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 function! s:CheckBackSpace() abort
     let col = col('.') - 1
@@ -318,7 +325,13 @@ endfunction
 
 " Coc shortcuts
 nnoremap <silent> H :call <SID>show_documentation()<CR>
-nmap ge :CocCommand explorer<CR>
+nnoremap <silent><C-t> :CocCommand explorer<CR>
+nnoremap <silent>gdef <Plug>(coc-definition)
+nnoremap <silent>gdec <Plug>(coc-definition)
+nnoremap <silent>gimp <Plug>(coc-implementation)
+nnoremap <silent>gtdef <Plug>(coc-type-definition)
+nnoremap <leader>f <Plug>(coc-format)
+nnoremap <silent>rn <Plug>(coc-rename)
 
 Plug 'tpope/vim-fugitive'                           " Git
 function! GitInfo()
@@ -348,7 +361,7 @@ Plug 'junegunn/fzf', { 'do': './install --all' }    " Fuzzy search (may require 
 Plug 'yuki-ycino/fzf-preview.vim'
 let g:fzf_preview_use_dev_icons = 1
 let g:fzf_preview_fzf_preview_window_option = "bottom:70%"
-nnoremap <silent><C-p> :FzfPreviewGitFiles<CR>
+nnoremap <silent><C-s> :FzfPreviewGitFiles<CR>
 
 Plug 'easymotion/vim-easymotion'                    " Quickly jump to a specific place in the current buffer
 nmap go <Plug>(easymotion-jumptoanywhere)
