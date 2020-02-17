@@ -47,9 +47,9 @@ set completeopt=longest,menuone,preview " Makes autocomplete work a little more 
 set noshowmode                          " Don't show current mode in message box
 set wrap
 set wrapmargin=8
-set list
-set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-set showbreak=↪
+" set list
+" set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+" set showbreak=↪
 set breakat=";?"
 set confirm
 set gdefault
@@ -452,7 +452,7 @@ autocmd FileType cs nnoremap <buffer> <Leader>rn :OmniSharpRename<CR>
 
 " Themes
 Plug 'addisonbeck/sith.vim'
-" Plug 'logico/typewriter'                            " Super minimal
+Plug 'logico/typewriter'                            " Super minimal
 " Plug 'morhetz/gruvbox'                            " Super retro
 " Plug 'challenger-deep-theme/vim'                  " Super deep
 " Plug 'hzchirs/vim-material'                       " Super material
@@ -501,8 +501,6 @@ Plug 'ryanoasis/vim-devicons'                       " Cute icons
 " Plug 'vim-airline/vim-airline'                      " Cute status bar
 " Plug 'vim-airline/vim-airline-themes'               " Cute themes for cute status bar
 
-Plug 'junegunn/goyo.vim'                            " Zen mode
-nmap <leader>g :Goyo<CR>
 
 Plug 'blueyed/vim-diminactive'                      " Dims inactive windows
 let g:diminactive_enable_focus = 1
@@ -515,12 +513,41 @@ let g:diminactive_use_colorcolumn = 1
 " rainbow
 let g:rainbow_active = 1
 
+
+
+" Writing
+Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-colors-pencil'
+Plug 'reedes/vim-lexical'
+Plug 'reedes/vim-wordy'
+Plug 'reedes/vim-litecorrect'
+Plug 'panozzaj/vim-autocorrect'
+" Plug 'tpope/vim-markdown'
+Plug 'dbmrq/vim-ditto'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'                            " Zen mode
+call plug#end()
+
+
+nmap <leader>g :Goyo<CR>
 let g:limelight_default_coefficient = 0.8
 nmap <Leader>l :Limelight!!<CR>
 xmap <Leader>l :Limelight!!<CR>
-
-call plug#end()
+let g:ditto_mode = "file"
+let g:pencil_terminal_italics = 1
+let g:pencil#autoformat = 1      " 0=disable, 1=enable (def)
+let g:lexical#thesaurus_key = '<leader>t'
+let g:lexical#dictionary_key = '<leader>r'
+let g:lexical#thesaurus = ['~/.config/thesaurus/mthesaur.txt',]
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd,text,tex call pencil#init()
+                                     \ | call lexical#init()
+                                     \ | call litecorrect#init()
+  autocmd FileType markdown,mkd,text,tex DittoOn  " Turn on Ditto's autocmds
+  autocmd FileType markdown,mkd,text,tex let g:lexical#thesaurus_key = '<leader>t'
+  autocmd FileType markdown,mkd,text,tex let g:lexical#dictionary_key = '<leader>d'
+augroup END
 
 " }} Plugins
 
@@ -530,7 +557,8 @@ call plug#end()
 
 " Themeing {{
 
-colorscheme sith
+set background=light
+colorscheme pencil
 if has('nvim') || has('termguicolors')
     set termguicolors " Allow for all the colors of the rainbow
 endif
