@@ -544,7 +544,7 @@ augroup pencil
   autocmd FileType markdown,mkd,text,tex call pencil#init()
                                      \ | call lexical#init()
                                      \ | call litecorrect#init()
-  autocmd FileType markdown,mkd,text,tex DittoOn  " Turn on Ditto's autocmds
+  autocmd FileType markdown,mkd,text,tex DittoOn
   autocmd FileType markdown,mkd,text,tex let g:lexical#thesaurus_key = '<leader>t'
   autocmd FileType markdown,mkd,text,tex let g:lexical#dictionary_key = '<leader>d'
 augroup END
