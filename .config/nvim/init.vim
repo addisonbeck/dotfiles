@@ -538,8 +538,12 @@ let g:pencil_terminal_italics = 1
 let g:pencil#autoformat = 1      " 0=disable, 1=enable (def)
 let g:lexical#thesaurus_key = '<leader>t'
 let g:lexical#dictionary_key = '<leader>r'
-let g:lexical#thesaurus = ['~/.config/thesaurus/mthesaur.txt',]
-augroup pencil
+
+if (sysOS == "mac" || sysOS == "unix")
+    let g:lexical#thesaurus = ['~/.config/thesaurus/mthesaur.txt',]
+endif
+
+augroup writingMode
   autocmd!
   autocmd FileType markdown,mkd,text,tex call pencil#init()
                                      \ | call lexical#init()
@@ -557,8 +561,8 @@ augroup END
 
 " Themeing {{
 
-set background=light
-colorscheme pencil
+" set background=light
+colorscheme sith
 if has('nvim') || has('termguicolors')
     set termguicolors " Allow for all the colors of the rainbow
 endif
