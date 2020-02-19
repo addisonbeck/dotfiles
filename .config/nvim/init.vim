@@ -365,6 +365,7 @@ nnoremap <silent><C-s> :FzfPreviewGitFiles<CR>
 
 Plug 'easymotion/vim-easymotion'                    " Quickly jump to a specific place in the current buffer
 nmap go <Plug>(easymotion-jumptoanywhere)
+Plug 'christoomey/vim-tmux-navigator'
 
 " Linting
 Plug 'w0rp/ale'                                       " Or just ale if you have custom sensible defaults
@@ -502,7 +503,7 @@ Plug 'ryanoasis/vim-devicons'                       " Cute icons
 " Plug 'vim-airline/vim-airline-themes'               " Cute themes for cute status bar
 
 
-Plug 'blueyed/vim-diminactive'                      " Dims inactive windows
+" Plug 'blueyed/vim-diminactive'                      " Dims inactive windows
 let g:diminactive_enable_focus = 1
 let g:diminactive_use_colorcolumn = 1
 
