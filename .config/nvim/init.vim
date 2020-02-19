@@ -324,14 +324,14 @@ function! s:CheckBackSpace() abort
 endfunction
 
 " Coc shortcuts
-nnoremap <silent> H :call <SID>show_documentation()<CR>
-nnoremap <silent><C-t> :CocCommand explorer<CR>
-nnoremap <silent>gdef <Plug>(coc-definition)
-nnoremap <silent>gdec <Plug>(coc-definition)
-nnoremap <silent>gimp <Plug>(coc-implementation)
-nnoremap <silent>gtdef <Plug>(coc-type-definition)
-nnoremap <leader>f <Plug>(coc-format)
-nnoremap <silent>rn <Plug>(coc-rename)
+nmap <silent> H :call <SID>show_documentation()<CR>
+nmap <silent><C-t> :CocCommand explorer<CR>
+nmap <silent>gdef <Plug>(coc-definition)
+nmap <silent>gdec <Plug>(coc-definition)
+nmap <silent>gimp <Plug>(coc-implementation)
+nmap <silent>gtdef <Plug>(coc-type-definition)
+nmap <leader>f <Plug>(coc-format)
+nmap <silent>rn <Plug>(coc-rename)
 
 Plug 'tpope/vim-fugitive'                           " Git
 function! GitInfo()
@@ -513,6 +513,8 @@ let g:diminactive_use_colorcolumn = 1
 " Plug 'luochen1990/rainbow'                        " Rainbow braces
 " rainbow
 let g:rainbow_active = 1
+
+Plug 'tmux-plugins/vim-tmux'
 
 
 
