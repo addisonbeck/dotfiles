@@ -12,14 +12,15 @@
         "typescriptreact",
         "json",
         "javascriptreact",
-        "typescript.tsx"
+        "typescript.tsx",
+        "html",
+        "scss"
     ],
     "explorer.width": 60,
     "explorer.quitOnOpen": true,
     "explorer.previewAction.onHover": true,
     "explorer.openAction.changeDirectory": false,
     "explorer.icon.enableNerdfont": true,
-    "explorer.icon.enableVimDevions": true,
     "explorer.buffer.showHiddenBuffers": true,
     "explorer.file.showHiddenFiles": true,
     "prettier.printWidth": 60,
