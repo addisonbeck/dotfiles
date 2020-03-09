@@ -28,8 +28,6 @@ endfunction
 :let sysOS = DetectOs()
 
 " }} Get OS
-
-
 "-------------------------------------------------------------------------------------------------
 
 
@@ -46,7 +44,8 @@ set cmdheight=2                         " Makes the command line a little bigger
 set completeopt=longest,menuone,preview " Makes autocomplete work a little more like other editors
 set noshowmode                          " Don't show current mode in message box
 set wrap
-set wrapmargin=8
+" set textwidth=72
+" set fo=tca
 " set list
 " set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 " set showbreak=↪
@@ -517,7 +516,9 @@ let g:rainbow_active = 1
 Plug 'tmux-plugins/vim-tmux'
 
 
-
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 " Writing
 Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-colors-pencil'
@@ -546,14 +547,15 @@ if (sysOS == "mac" || sysOS == "unix")
     let g:lexical#thesaurus = ['~/.config/thesaurus/mthesaur.txt',]
 endif
 
+autocmd FileType markdown,mkd,text,tex let g:lexical#thesaurus_key = '<leader>t'
+autocmd FileType markdown,mkd,text,tex let g:lexical#dictionary_key = '<leader>d'
+
 augroup writingMode
   autocmd!
   autocmd FileType markdown,mkd,text,tex call pencil#init()
-                                     \ | call lexical#init()
-                                     \ | call litecorrect#init()
-  autocmd FileType markdown,mkd,text,tex DittoOn
-  autocmd FileType markdown,mkd,text,tex let g:lexical#thesaurus_key = '<leader>t'
-  autocmd FileType markdown,mkd,text,tex let g:lexical#dictionary_key = '<leader>d'
+                                     " \ | call lexical#init()
+                                     " \ | call litecorrect#init()
+  " autocmd FileType markdown,mkd,text,tex DittoOn
 augroup END
 
 " }} Plugins
@@ -564,8 +566,8 @@ augroup END
 
 " Themeing {{
 
-" set background=light
-colorscheme sith
+set background=light
+colorscheme pencil
 if has('nvim') || has('termguicolors')
     set termguicolors " Allow for all the colors of the rainbow
 endif
