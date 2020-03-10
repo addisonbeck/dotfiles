@@ -542,6 +542,7 @@ let g:pencil_terminal_italics = 1
 let g:pencil#autoformat = 1      " 0=disable, 1=enable (def)
 let g:lexical#thesaurus_key = '<leader>t'
 let g:lexical#dictionary_key = '<leader>r'
+let g:lexical#spell_key = '<leader>?'
 
 if (sysOS == "mac" || sysOS == "unix")
     let g:lexical#thesaurus = ['~/.config/thesaurus/mthesaur.txt',]
@@ -553,9 +554,9 @@ autocmd FileType markdown,mkd,text,tex let g:lexical#dictionary_key = '<leader>d
 augroup writingMode
   autocmd!
   autocmd FileType markdown,mkd,text,tex call pencil#init()
-                                     " \ | call lexical#init()
-                                     " \ | call litecorrect#init()
-  " autocmd FileType markdown,mkd,text,tex DittoOn
+                                     \ | call lexical#init()
+                                     \ | call litecorrect#init()
+  autocmd FileType markdown,mkd,text,tex DittoOn
 augroup END
 
 " }} Plugins
