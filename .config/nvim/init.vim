@@ -476,7 +476,7 @@ if (sysOS == "windows")
 endif
 if (sysOS == "unix")
     let g:startify_bookmarks = [
-                \'/mnt/c/Users/beckad/source/repos/Products.RemitSplitting'
+                \'/media/sf_C_DRIVE/Users/beckad/source/repos/Products.RemitSplitting'
                 \]
 endif
 
