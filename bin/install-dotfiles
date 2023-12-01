@@ -1,0 +1,30 @@
+#!/bin/bash
+
+PLATFORM="unknown"
+if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+   PLATFORM='ubuntu'
+fi
+
+install_fish () {
+  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+    sudo add-apt-repository ppa:fish-shell/release-3
+    sudo apt update
+    sudo apt install fish
+  fi
+}
+
+set_default_shell () {
+  echo /usr/local/bin/fish | sudo tee -a /etc/shells
+  chsh -s /usr/local/bin/fish
+}
+
+install_neovim () {
+  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+    sudo dpkg -i nvim-linux64.deb
+  fi
+}
+
+install_fish
+set_default_shell
+install_neovim
