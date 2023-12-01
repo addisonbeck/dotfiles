@@ -6,17 +6,25 @@ if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
 fi
 
 install_package () {
-  sudo apt-get -qq -o "DPkg::Lock::Timeout=180" install $1
+  if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+    sudo apt-get -qq -o "DPkg::Lock::Timeout=180" install $1
+  fi
 }
 
 remove_package () {
-  sudo apt-get -qq -o "DPkg::Lock::Timeout=180" remove $1
+  if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+    sudo apt-get -qq -o "DPkg::Lock::Timeout=180" remove $1
+  fi
 }
 
 update_packages () {
-  sudo apt-get -qq -o "DPkg::Lock::Timeout=180" update > /dev/null
+  if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+    sudo apt-get -qq -o "DPkg::Lock::Timeout=180" update > /dev/null
+  fi
 }
 
 upgrade_packages () {
-  sudo -E apt-get -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" -o "DPkg::Lock::Timeout=180" upgrade > /dev/null
+  if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+    sudo -E apt-get -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" -o "DPkg::Lock::Timeout=180" upgrade > /dev/null
+  fi
 }
