@@ -28,8 +28,12 @@ set_user_permissions () {
   chmod 700 /home/$OSUSERNAME/.cache
 }
 
-move_self () {
-  git mv . /home/$OSUSERNAME
+install_self () {
+  cd ~/home/$OSUSERNAME
+  git init
+  git remote origin add https://github.com/addisonbeck/dotfiles.git
+  git fetch
+  git checkout -f main
 }
 
 build_user_directory
@@ -37,3 +41,4 @@ copy_user_ssh_keys
 create_user
 remove_sudo_password_requirement
 set_user_permissions
+install_self
