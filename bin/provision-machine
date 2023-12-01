@@ -16,7 +16,6 @@ create_user () {
 }
 
 remove_sudo_password_requirement () {
-  echo "%sudo ALL=(ALL:ALL) ALL"
   echo "$OSUSERNAME ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$OSUSERNAME
 }
 
