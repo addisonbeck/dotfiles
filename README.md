@@ -5,7 +5,7 @@ My dotfiles
 To build a user and install from root on a fresh machine:
 
 ```bash
-curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/provision-machine.sh \
+curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/provision-machine \
 --output main.sh && \
 bash main.sh
 ```
