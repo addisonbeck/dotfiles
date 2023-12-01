@@ -29,7 +29,7 @@ set_user_permissions () {
 }
 
 install_self () {
-  cd ~/home/$OSUSERNAME
+  cd /home/$OSUSERNAME
   git init
   git remote origin add https://github.com/addisonbeck/dotfiles.git
   git fetch
