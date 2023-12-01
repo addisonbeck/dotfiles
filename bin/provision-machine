@@ -1,0 +1,35 @@
+#!/bin/bash
+
+OSUSERNAME="me"
+
+build_user_directory () {
+  mkdir -p /home/$OSUSERNAME/.ssh
+  mkdir -p /home/$OSUSERNAME/.cache
+}
+
+copy_user_ssh_keys () {
+  cp /root/.ssh/authorized_keys /home/$OSUSERNAME/.ssh/
+}
+
+create_user () {
+  useradd -G sudo --shell /bin/bash $OSUSERNAME
+}
+
+remove_sudo_password_requirement () {
+  echo "%sudo ALL=(ALL:ALL) ALL"
+  echo "$OSUSERNAME ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$OSUSERNAME
+}
+
+set_user_permissions () {
+  chown -R $OSUSERNAME:$OSUSERNAME /home/$OSUSERNAME/
+  chown -R $OSUSERNAME:$OSUSERNAME /home/$OSUSERNAME
+  chmod 700 /home/$OSUSERNAME/.ssh
+  chmod 644 /home/$OSUSERNAME/.ssh/authorized_keys
+  chmod 700 /home/$OSUSERNAME/.cache
+}
+
+build_user_directory
+copy_user_ssh_keys
+create_user
+remove_sudo_password_requirement
+set_user_permissions
