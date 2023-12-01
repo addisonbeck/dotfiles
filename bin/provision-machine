@@ -30,7 +30,11 @@ set_user_permissions () {
 
 install_self () {
   cd /home/$OSUSERNAME
-  su -s /bin/bash -c "git init && git remote origin add https://github.com/addisonbeck/dotfiles.git && git fetch && git checkout -f main" -l $OSUSERNAME
+  su -s /bin/bash -c "git init && git remote add origin https://github.com/addisonbeck/dotfiles.git && git fetch && git checkout -f main" -l $OSUSERNAME
+  git init
+  git remote origin add https://github.com/addisonbeck/dotfiles.git
+  git fetch
+  git checkout -f main
 }
 
 build_user_directory
