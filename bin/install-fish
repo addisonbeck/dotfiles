@@ -5,8 +5,8 @@ source platform
 install_fish () {
   if [[ "$PLATFORM" == "ubuntu"* ]]; then
     sudo add-apt-repository ppa:fish-shell/release-3
-    sudo apt update
-    sudo apt-get -y install fish
+    update_packages
+    install_package fish
   fi
 }
 
@@ -17,3 +17,4 @@ set_default_shell () {
 
 install_fish
 set_default_shell
+

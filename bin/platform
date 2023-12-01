@@ -5,3 +5,18 @@ if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
    PLATFORM='ubuntu'
 fi
 
+install_package () {
+  sudo apt-get -qq -o "DPkg::Lock::Timeout=180" install $1
+}
+
+remove_package () {
+  sudo apt-get -qq -o "DPkg::Lock::Timeout=180" remove $1
+}
+
+update_packages () {
+  sudo apt-get -qq -o "DPkg::Lock::Timeout=180" update > /dev/null
+}
+
+upgrade_packages () {
+  sudo -E apt-get -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" -o "DPkg::Lock::Timeout=180" upgrade > /dev/null
+}
