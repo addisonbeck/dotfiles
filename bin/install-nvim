@@ -1,0 +1,15 @@
+#!/bin/bash
+
+PLATFORM="unknown"
+if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+   PLATFORM='ubuntu'
+fi
+
+install_neovim () {
+  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+    sudo dpkg -i nvim-linux64.deb
+  fi
+}
+
+install_neovim
