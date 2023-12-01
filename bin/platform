@@ -1,0 +1,7 @@
+#!/bin/bash
+
+PLATFORM="unknown"
+if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+   PLATFORM='ubuntu'
+fi
+

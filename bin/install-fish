@@ -1,15 +1,12 @@
 #!/bin/bash
 
-PLATFORM="unknown"
-if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
-   PLATFORM='ubuntu'
-fi
+source platform
 
 install_fish () {
   if [[ "$PLATFORM" == "ubuntu"* ]]; then
     sudo add-apt-repository ppa:fish-shell/release-3
     sudo apt update
-    sudo apt install fish
+    sudo apt-get -y install fish
   fi
 }
 
