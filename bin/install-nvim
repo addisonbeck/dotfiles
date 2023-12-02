@@ -4,8 +4,11 @@ source platform
 
 install_neovim () {
   if [[ "$PLATFORM" == "ubuntu"* ]]; then
-    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
-    sudo dpkg -i nvim-linux64.deb
+    wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+    tar xvzf /home/user/downloads/nvim-linux64.tar.gz
+    mv nvim-linux64 ~/.local/share/nvim-linux64
+    cd ~/bin
+    ln -sf ~/.local/share/nvim-linux64/bin/nvim nvim
   fi
 }
 
