@@ -33,8 +33,7 @@ install_self () {
 }
 
 login () {
-  cd /home/$OSUSERNAME
-  su $OSUSERNAME
+  su -l $OSUSERNAME
 }
 
 build_user_directory
