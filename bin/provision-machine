@@ -32,14 +32,9 @@ install_self () {
   su -s /bin/bash -c "git init && git remote add origin https://github.com/addisonbeck/dotfiles.git && git fetch && git checkout -f main" -l $OSUSERNAME
 }
 
-login () {
-  su $OSUSERNAME
-}
-
 build_user_directory
 copy_user_ssh_keys
 create_user
 remove_sudo_password_requirement
 set_user_permissions
 install_self
-login
