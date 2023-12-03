@@ -17,7 +17,6 @@ install_dotnet_sdk () {
   install_package "dotnet-sdk-6.0"
 }
 
-
 if [[ "$PLATFORM" == "ubuntu"* ]]; then
   register_microsoft_repo
 fi
