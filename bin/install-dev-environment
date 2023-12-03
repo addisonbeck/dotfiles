@@ -4,4 +4,4 @@ make-swap
 install-fish
 install-nvim
 install-dotnet
-
+sudo su -l me
