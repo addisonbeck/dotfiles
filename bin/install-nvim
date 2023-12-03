@@ -6,7 +6,7 @@ install_neovim () {
   if [[ "$PLATFORM" == "ubuntu"* ]]; then
     wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
     tar xvzf nvim-linux64.tar.gz
-    sudo mv nvim-linux64 /usr/local/bin
+    sudo mv -f nvim-linux64 /usr/local/bin
     cd /usr/local/bin/
     sudo ln -sf /usr/local/bin/nvim-linux64/bin/nvim nvim
   fi
