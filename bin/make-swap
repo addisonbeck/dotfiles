@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 setup_swap () {
   sudo fallocate -l 2G /swapfile
