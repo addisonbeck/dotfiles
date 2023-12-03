@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source platorm
+source platform
 
 register_microsoft_repo () {
   install_package "wget apt-transport-https software-properties-common"
