@@ -11,8 +11,8 @@ install_fish () {
 }
 
 set_default_shell () {
-  echo /usr/local/bin/fish | sudo tee -a /etc/shells
-  sudo chsh -s /usr/bin/fish
+  echo /usr/bin/fish | sudo tee -a /etc/shells
+  sudo chsh -s $(which fish) $(whoami)
 }
 
 install_fish
