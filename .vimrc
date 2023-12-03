@@ -1,4 +1,7 @@
-set confirm
+:filetype on
+:syntax on
+
+set noconfirm
 set noswapfile
 
 set clipboard=unnamed

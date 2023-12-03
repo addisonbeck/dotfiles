@@ -1,0 +1,25 @@
+#!/bin/bash
+
+source platorm
+
+register_microsoft_repo () {
+  install_package "wget apt-transport-https software-properties-common"
+  source /etc/os-release
+  wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
+  sudo dpkg -i packages-microsoft-prod.deb
+  sudo touch /etc/apt/preferences
+  echo -e "Package: * \nPin: origin \"packages.microsoft.com\" \nPin-Priority: 1001" | sudo tee -a /etc/apt/preferences > /dev/null
+  rm packages-microsoft-prod.deb
+  update_packages
+}
+
+install_dotnet_sdk () {
+  install_package "dotnet-sdk-6.0"
+}
+
+
+if [[ "$PLATFORM" == "ubuntu"* ]]; then
+  register_microsoft_repo
+fi
+install_dotnet_sdk
+
