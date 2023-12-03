@@ -8,7 +8,7 @@ install_neovim () {
     tar xvzf nvim-linux64.tar.gz
     sudo mv nvim-linux64 /usr/local/bin
     cd /usr/local/bin/
-    ln -sf /usr/local/bin/nvim-linux64/bin/nvim nvim
+    sudo ln -sf /usr/local/bin/nvim-linux64/bin/nvim nvim
   fi
 }
 
