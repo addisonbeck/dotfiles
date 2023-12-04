@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 
-export DEBIAN_FRONTEND=noninteractive
-
 PLATFORM="unknown"
 if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
    PLATFORM='ubuntu'
