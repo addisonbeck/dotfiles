@@ -20,5 +20,6 @@ set_default_shell () {
 }
 
 install_fish
+install_omf
 set_default_shell
 
