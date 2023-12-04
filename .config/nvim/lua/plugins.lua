@@ -29,11 +29,11 @@ require("lazy").setup({
   "kyazdani42/nvim-tree.lua",
   "kyazdani42/nvim-web-devicons",
   {
-      "addisonbeck/telescope.nvim",
-      dependencies = {
-          { "nvim-lua/popup.nvim" },
-          { "nvim-lua/plenary.nvim"},
-      },
+    "nvim-telescope/telescope.nvim", tag = "0.1.x",
+    dependencies = { 
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope-fzy-native.nvim" },
+    }
   },
   { 
       "nvim-treesitter/nvim-treesitter",
@@ -74,3 +74,5 @@ require("lazy").setup({
     "WhoIsSethDaniel/mason-tool-installer.nvim"
   },
 })
+
+require('telescope').load_extension('fzy_native')
