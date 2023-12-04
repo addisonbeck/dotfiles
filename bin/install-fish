@@ -10,6 +10,10 @@ install_fish () {
   fi
 }
 
+install_omf () {
+  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+}
+
 set_default_shell () {
   echo /usr/bin/fish | sudo tee -a /etc/shells
   sudo chsh -s $(which fish) $(whoami)
