@@ -5,4 +5,5 @@ install-fish
 install-nvim
 install-dotnet
 install-node
+install-go
 sudo su -l me
