@@ -29,7 +29,7 @@ require("lazy").setup({
   "kyazdani42/nvim-tree.lua",
   "kyazdani42/nvim-web-devicons",
   {
-    "nvim-telescope/telescope.nvim", tag = "0.1.x",
+    "nvim-telescope/telescope.nvim", tag = "0.1.5",
     dependencies = { 
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzy-native.nvim" },
