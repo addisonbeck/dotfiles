@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+export NVM_SYMLINK_CURRENT=true
+
+if [[ -s $HOME/.nvm/nvm.sh ]] ;
+  then
+    source $HOME/.nvm/nvm.sh;
+  else
+    echo "No nvm found in `$HOME/.nvm/nvm.sh`";
+fi
+
+nvm $@
