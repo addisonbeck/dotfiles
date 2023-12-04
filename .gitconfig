@@ -1,0 +1,50 @@
+[user]
+	name = Addison Beck
+	email = hello@addisonbeck.com
+	signingkey = /home/me/.ssh/github.pub
+[diff]
+	command = nvim
+[merge]
+	tool = vimdiff
+[mergetool]
+	path = nvim
+[mergetool "vimdiff"]
+	path = nvim
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[core]
+  editor = nvim
+[alias]
+    a = add
+    p = push
+    pl = pull
+    f = fetch --all
+    r = reset
+    r = rebase
+    l = log
+    li = list
+    d = difftool
+    rs = restore
+    g = grep
+    c = checkout
+    s = status
+    bigreset = reset (git merge-base master (git rev-parse --abbrev-ref HEAD))
+    clog = reflog --grep-reflog="commit" --format="format:'%C(yellow bold dim)[%h] %C(nodim)%gd %C(white)%an %C(italic nobold)%s %C(magenta noitalic)%d'"
+    ir = rebase -i origin/HEAD
+    sh = "!f() { rev=${1-HEAD}; git difftool $rev^ $rev; }; f"
+    purge = "!git branch | grep -v \" master$\" | xargs git branch -D"
+[pull]
+	rebase = true
+[format]
+  pretty= %C(yellow bold)[%h] %C(white)%an %C(italic nobold)%s %C(magenta noitalic)%d
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

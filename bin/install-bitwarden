@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+source platform
+
+install_bitwarden () {
+  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+    install_package unzip
+    curl -s --location "https://vault.bitwarden.com/download/?app=cli&platform=$PLATFORM" --output bw.zip
+    unzip bw.zip -d . 
+    chmod +x bw
+    sudo mv bw /usr/local/bin
+    rm bw.zip
+  fi
+}
+
+install_bitwarden
+

@@ -1,9 +1,14 @@
 #!/usr/bin/bash
 
+mkdir -p /home/$(whoami)/apps
+chmod 700 /home/$(whoami)/apps
+
 make-swap
+configure-secrets
 install-fish
 install-nvim
 install-dotnet
 install-node
 install-go
+
 sudo su -l me
