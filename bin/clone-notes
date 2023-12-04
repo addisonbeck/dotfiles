@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+source platform
+
+clone_notes () {
+  cd $HOME 
+  git clone git@github.com:addisonbeck/notes.git
+}
+
+clone_notes
