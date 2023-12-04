@@ -4,5 +4,5 @@ make-swap
 install-fish
 install-nvim
 install-dotnet
-install_node
+install-node
 sudo su -l me
