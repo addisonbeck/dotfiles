@@ -3,12 +3,13 @@
 mkdir -p /home/$(whoami)/apps
 chmod 700 /home/$(whoami)/apps
 
-make-swap
+# make-swap
 configure-secrets
 install-fish
 install-nvim
 install-dotnet
 install-node
 install-go
+git remote set-url origin git@github.com:addisonbeck/dotfiles.git
 
 sudo su -l me

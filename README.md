@@ -18,4 +18,5 @@ git init &&
 git remote add origin https://github.com/addisonbeck/dotfiles.git &&
 git fetch &&
 git checkout -f main
+
 ```
