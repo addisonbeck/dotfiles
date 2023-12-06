@@ -10,6 +10,7 @@ require('mason-tool-installer').setup {
     'svelte-language-server',
     'typescript-language-server',
     'vim-language-server',
+    'eslint-lsp'
   },
 
   auto_update = false,
@@ -26,6 +27,7 @@ local simple_servers = {
   'angularls',
   'bashls',
   'csharp_ls',
+  'eslint'
 }
 
 for _, server in ipairs(simple_servers) do
