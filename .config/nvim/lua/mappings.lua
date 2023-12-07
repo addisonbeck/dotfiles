@@ -4,3 +4,5 @@ vim.api.nvim_set_keymap('n', '|', ':NvimTreeFindFileToggle<CR>', opts)
 vim.api.nvim_set_keymap('n', '\\', ':Telescope<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Tab>', ':Telescope buffers<CR>', opts)
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':Telescope git_files<CR>', opts)
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
