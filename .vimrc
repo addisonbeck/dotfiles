@@ -5,7 +5,7 @@ set noconfirm
 set noswapfile
 
 set clipboard=unnamed
-set cmdheight=3
+set cmdheight=1
 set hidden
 set ignorecase
 set lazyredraw
