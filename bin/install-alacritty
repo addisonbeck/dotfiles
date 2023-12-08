@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+source platform
+
+install_alacritty () {
+  if [[ "$PLATFORM" == "mac"* ]]; then
+    install_package alacritty
+  fi
+}
+
+install_alacritty
+

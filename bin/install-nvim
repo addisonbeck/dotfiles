@@ -17,6 +17,12 @@ install_neovim () {
     rm ~/nvim-linux64.tar.gz
     rm -rf ~/nvim-linux64
   fi
+
+  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+    install_package ripgrep
+    install_package fd
+    install_package neovim
+  fi
 }
 
 install_neovim

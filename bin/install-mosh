@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+source platform
+
+install_mosh () {
+  if [[ "$PLATFORM" == "mac" ]]; then
+    install_package mosh
+  fi
+}
+
+install_mosh

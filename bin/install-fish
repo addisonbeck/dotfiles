@@ -3,9 +3,12 @@
 source platform
 
 install_fish () {
-  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
     sudo add-apt-repository ppa:fish-shell/release-3 -y
     update_packages
+    install_package fish
+  fi
+  if [[ "$PLATFORM" == "mac" ]]; then
     install_package fish
   fi
 }
@@ -15,7 +18,12 @@ install_omf () {
 }
 
 set_default_shell () {
-  echo /usr/bin/fish | sudo tee -a /etc/shells
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
+    echo /usr/bin/fish | sudo tee -a /etc/shells
+  fi
+  if [[ "$PLATFORM" == "mac" ]]; then
+    echo /usr/local/bin/fish | sudo tee -a /etc/shells
+  fi
   sudo chsh -s $(which fish) $(whoami)
 }
 
