@@ -1,3 +1,5 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+  if test -e ~/.env
+      envsource ~/.env
+  end
 end
