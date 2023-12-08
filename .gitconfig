@@ -1,7 +1,7 @@
 [user]
 	name = Addison Beck
 	email = hello@addisonbeck.com
-	signingkey = /home/me/.ssh/github.pub
+	signingkey = ~/.ssh/github.pub
 [diff]
 	command = nvim
 [merge]
