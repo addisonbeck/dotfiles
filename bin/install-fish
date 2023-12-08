@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+
 
 source platform
 
@@ -22,7 +23,7 @@ set_default_shell () {
     echo /usr/bin/fish | sudo tee -a /etc/shells
   fi
   if [[ "$PLATFORM" == "mac" ]]; then
-    echo /usr/local/bin/fish | sudo tee -a /etc/shells
+    echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
   fi
   sudo chsh -s $(which fish) $(whoami)
 }

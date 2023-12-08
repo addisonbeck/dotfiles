@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 PLATFORM="unknown"
 if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
@@ -13,7 +13,7 @@ install_package () {
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" install $1
   fi
   if [[ "$PLATFORM" == "mac" ]]; then
-    brew install -q
+    brew install -q $1 
   fi
 }
 
@@ -22,7 +22,7 @@ remove_package () {
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" remove $1
   fi
   if [[ "$PLATFORM" == "mac" ]]; then
-    brew uninstall -q
+    brew uninstall -q $1
   fi
 }
 

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 source platform
 
@@ -18,7 +18,7 @@ install_neovim () {
     rm -rf ~/nvim-linux64
   fi
 
-  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+  if [[ "$PLATFORM" == "mac" ]]; then
     install_package ripgrep
     install_package fd
     install_package neovim
