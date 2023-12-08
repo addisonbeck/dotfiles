@@ -32,3 +32,5 @@ set sw=2
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 nmap <CR> o<Esc>
+
+highlight Comment cterm=italic

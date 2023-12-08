@@ -1,0 +1,27 @@
+live_config_reload: true
+
+env:
+  TERM: xterm-256color
+
+window:
+  decorations: buttonless
+  dynamic_padding: false
+  opacity: 1.0
+  padding:
+    x: 25
+    y: 20
+
+font:
+  normal:
+    family: "MonaspiceKr NFM"
+    style: Regular
+  italic:
+    family: "MonaspiceRd NFM"
+    style: Regular
+  bold:
+    family: "MonaspiceKr NFM"
+    style: Bold
+  bold_italic:
+    family: "MonaspiceRd NFM"
+    style: Bold
+  size: 16.0
