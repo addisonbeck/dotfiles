@@ -5,4 +5,8 @@ if status is-interactive
   alias fd="fd -uu"
   alias tmux-h="tmux -f ~/.tmux.host.conf"
   alias tmux-c="tmux -f ~/.tmux.client.conf"
+
+  if test -e ~/.config/starship-installed
+    starship init fish | source
+  end
 end

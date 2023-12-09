@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_starship () {
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
+    curl -sS https://starship.rs/install.sh | sh
+    touch ~/.config/starship-installed
+  fi
+  if [[ "$PLATFORM" == "mac" ]]; then
+    install_package starship
+    touch ~/.config/starship-installed
+  fi
+}
+
+install_starship
+
