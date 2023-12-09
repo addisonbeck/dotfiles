@@ -6,6 +6,9 @@ install_mosh () {
   if [[ "$PLATFORM" == "mac" ]]; then
     install_package mosh
   fi
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
+    install_package mosh
+  fi
 }
 
 install_mosh
