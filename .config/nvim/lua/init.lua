@@ -1,5 +1,4 @@
 require('plugins')
 require('lsp')
-require('filetree')
 require('terminal')
 require('mappings')

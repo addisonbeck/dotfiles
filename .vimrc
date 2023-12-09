@@ -17,10 +17,6 @@ set splitbelow
 set splitright
 set updatetime=300
 
-set number
-set relativenumber
-set signcolumn=number
-
 set expandtab
 set smartindent
 set softtabstop=2
@@ -28,9 +24,14 @@ set tabstop=2
 
 set undofile
 set sw=2
+set laststatus=3
 
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 nmap <CR> o<Esc>
+nmap <S-n> :set nu!<CR>
 
 highlight Comment cterm=italic
+highlight EndOfBuffer ctermfg=black ctermbg=black
+highlight StatusLine   cterm=none ctermfg=white ctermbg=black guibg=red
+highlight StatusLineNC cterm=none ctermfg=white ctermbg=black guibg=green

@@ -10,6 +10,7 @@ window:
   padding:
     x: 25
     y: 20
+  startup_mode: Maximized
 
 font:
   normal:

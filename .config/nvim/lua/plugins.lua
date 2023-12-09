@@ -25,13 +25,23 @@ require("lazy").setup({
   },
   "neovim/nvim-lspconfig",
   "tpope/vim-commentary",
-  "kyazdani42/nvim-tree.lua",
   "kyazdani42/nvim-web-devicons",
   {
     "nvim-telescope/telescope.nvim", tag = "0.1.5",
+    setup = {
+      extensions = {
+        file_browser = {
+          hidden = true,
+          grouped = true,
+          respect_gitignore = false
+        },
+      },
+    },
     dependencies = { 
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzy-native.nvim" },
+      { "camgraff/telescope-tmux.nvim" },
+      { "nvim-telescope/telescope-file-browser.nvim" },
     }
   },
   { 
@@ -75,3 +85,5 @@ require("lazy").setup({
 })
 
 require('telescope').load_extension('fzy_native')
+require('telescope').load_extension('tmux')
+require('telescope').load_extension('file_browser')
