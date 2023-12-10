@@ -26,6 +26,8 @@ set undofile
 set sw=2
 set laststatus=3
 
+set scl=no
+
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 nmap <CR> o<Esc>
@@ -35,3 +37,4 @@ highlight Comment cterm=italic
 highlight EndOfBuffer ctermfg=black ctermbg=black
 highlight StatusLine   cterm=none ctermfg=white ctermbg=black guibg=red
 highlight StatusLineNC cterm=none ctermfg=white ctermbg=black guibg=green
+
