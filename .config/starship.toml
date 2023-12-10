@@ -37,7 +37,7 @@ error_symbol = '[🝖](bold red)'
 disabled = true
 
 [os]
-disabled = false
+disabled = true
 
 [os.symbols]
 Alpaquita = "🔔 "
