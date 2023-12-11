@@ -1,3 +1,7 @@
+import:
+ - ~/.config/alacritty/themes/gruvbox_material_medium_dark.yml
+ - ~/.config/alacritty/font.yml
+
 live_config_reload: true
 
 env:
@@ -12,17 +16,3 @@ window:
     y: 20
   startup_mode: Maximized
 
-font:
-  normal:
-    family: "MonaspiceKr NFM"
-    style: Regular
-  italic:
-    family: "MonaspiceRd NFM"
-    style: Regular
-  bold:
-    family: "MonaspiceKr NFM"
-    style: Bold
-  bold_italic:
-    family: "MonaspiceRd NFM"
-    style: Bold
-  size: 16.0

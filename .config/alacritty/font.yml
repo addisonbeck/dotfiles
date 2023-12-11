@@ -1,0 +1,22 @@
+font:
+  normal:
+    family: "MonaspiceKr NFM"
+    style: Regular
+    # family: "Dank Mono"
+    # style: Regular
+  italic:
+    family: "MonaspiceRd NFM"
+    style: Regular
+    # family: "Dank Mono"
+    # style: Italic
+  bold:
+    family: "MonaspiceKr NFM"
+    style: Bold
+    # family: "Dank Mono"
+    # style: Bold
+  bold_italic:
+    family: "MonaspiceRd NFM"
+    style: Bold
+    # family: "Dank Mono"
+    # style: Bold
+  size: 16.0
