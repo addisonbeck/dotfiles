@@ -32,6 +32,8 @@ nmap <S-j> <C-d>
 nmap <S-k> <C-u>
 nmap <CR> o<Esc>
 nmap <S-n> :set nu!<CR>
+nmap j gj
+nmap k gk
 
 highlight Comment cterm=italic
 highlight EndOfBuffer ctermfg=black ctermbg=black
