@@ -18,3 +18,7 @@ window:
 
 selection:
   save_to_clipboard: true
+
+key_bindings:
+  - { key: Space,  mods: Shift|Control, mode: ~Search, action: ReceiveChar }
+

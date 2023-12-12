@@ -3,8 +3,6 @@ if status is-interactive
       envsource ~/.env
   end
   alias fd="fd -uu"
-  alias tmux-h="tmux -f ~/.tmux.host.conf"
-  alias tmux-c="tmux -f ~/.tmux.client.conf"
   omf theme ''
   if test -e ~/.config/starship-installed
     starship init fish | source
