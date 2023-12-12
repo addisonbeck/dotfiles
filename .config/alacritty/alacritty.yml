@@ -12,7 +12,9 @@ window:
   dynamic_padding: false
   opacity: 1.0
   padding:
-    x: 25
+    x: 250
     y: 20
   startup_mode: Maximized
 
+selection:
+  save_to_clipboard: true
