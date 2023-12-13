@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+
+source platform
+
+install_tmux () {
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
+    install_package "libevent-dev ncurses-dev build-essential bison pkg-config"
+    wget https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz
+    tar -zxf tmux-3.3a.tar.gz
+    cd tmux-3.3a/
+    ./configure
+    make && sudo make install
+    rm ~/tmux-3.3a.tar.gz
+    rm -rf ~/tmux-3.3a
+  fi
+  if [[ "$PLATFORM" == "mac" ]]; then
+    install_package tmux
+  fi
+}
+
+
+install_tmux
+
