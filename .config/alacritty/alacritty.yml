@@ -9,12 +9,13 @@ env:
 
 window:
   decorations: buttonless
-  dynamic_padding: false
+  dynamic_padding: true
   opacity: 1.0
   padding:
-    x: 255
-    y: 20
-  startup_mode: Maximized
+    # x: 255
+    x: 30
+    y: 25
+  startup_mode: SimpleFullscreen
 
 selection:
   save_to_clipboard: true
@@ -24,10 +25,7 @@ key_bindings:
 
 cursor:
   style:
-    shape: Underline
     blinking: Always
   blink_timeout: 0
   blink_interval: 600
-
-
 
