@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_weechat () {
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
+    install_package "ca-certificates dirmngr gpg-agent apt-transport-https"
+    sudo mkdir /root/.gnupg
+    sudo chmod 700 /root/.gnupg
+    sudo mkdir -p /usr/share/keyrings
+    sudo gpg --no-default-keyring \
+      --keyring /usr/share/keyrings/weechat-archive-keyring.gpg \
+      --keyserver hkps://keys.openpgp.org \
+      --recv-keys 11E9DE8848F2B65222AA75B8D1820DB22A11534E
+    echo \
+      'deb [signed-by=/usr/share/keyrings/weechat-archive-keyring.gpg] ' \
+      'https://weechat.org/ubuntu jammy main' | sudo tee /etc/apt/sources.list.d/weechat.list
+    echo \ 
+      'deb-src [signed-by=/usr/share/keyrings/weechat-archive-keyring.gpg] ' \
+      'https://weechat.org/ubuntu jammy main' | sudo tee -a /etc/apt/sources.list.d/weechat.list
+    update_packages
+    install_package "weechat-curses weechat-headless weechat-plugins weechat-perl weechat-python python3-websocket"
+  fi
+  if [[ "$PLATFORM" == "mac" ]]; then
+    install_package "weechat"
+  fi
+
+  weechat-headless --stdout -r "/set script.scripts.download_enabled on; /script install slack.py; /set plugins.var.python.slack.slack_api_token $BW_SLACK_TOKEN; /exit"
+  weechat-headless --stdout -r "/set script.scripts.download_enabled on; /exit"
+  weechat-headless --stdout -r "/script install slack.py; /set plugins.var.python.slack.slack_api_token $BW_SLACK_TOKEN; /exit"
+}
+
+install_weechat
+
