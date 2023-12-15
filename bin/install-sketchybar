@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source platform
+
+brew tap FelixKratz/formulae
+install_package sketchybar
+brew services start sketchybar
+

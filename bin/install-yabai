@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_package koekeishiya/formulae/yabai
+
+sudo touch /private/etc/sudoers.d/yabai
+echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai)) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
+
+yabai --start-service

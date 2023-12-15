@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Apple Silicon macOS 13.x.x - if you're using something else it would be wise to find an updated command
+csrutil enable --without fs --without debug --without nvram
