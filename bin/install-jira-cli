@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_jira () {
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
+    wget https://github.com/ankitpokhrel/jira-cli/releases/download/v1.4.0/jira_1.4.0_linux_x86_64.tar.gz
+    tar xvzf jira_1.4.0_linux_x86_64.tar.gz
+    sudo mv -f jira_1.4.0_linux_x86_64/bin/jira /usr/local/bin
+    rm ~/jira_1.4.0_linux_x86_64.tar.gz
+    rm -rf ~/jira_1.4.0_linux_x86_64
+  fi
+
+  if [[ "$PLATFORM" == "mac" ]]; then
+    brew tap ankitpokhrel/jira-cli
+    brew install jira-cli
+  fi
+}
+
+install_jira
+

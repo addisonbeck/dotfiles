@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_neomutt () {
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
+    install_package neomutt
+  fi
+
+  if [[ "$PLATFORM" == "mac" ]]; then
+    install_package neomutt
+  fi
+}
+
+install_neomutt
+
