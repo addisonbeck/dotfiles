@@ -17,6 +17,7 @@ cd ~ &&
 git init &&
 git remote add origin https://github.com/addisonbeck/dotfiles.git &&
 git fetch &&
-git checkout -f main
+git checkout -f main &&
+git remote set-url origin git@github.com:addisonbeck/dotfiles.git
 
 ```
