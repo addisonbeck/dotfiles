@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+save_secrets () {
+  bw get attachment yk5c --itemid ac755655-4d35-44bf-9bfc-b0ce013407c6 --session $BW_SESSION
+  bw get attachment yk5c.pub --itemid ac755655-4d35-44bf-9bfc-b0ce013407c6 --session $BW_SESSION
+  bw get attachment yknano --itemid ac755655-4d35-44bf-9bfc-b0ce013407c6 --session $BW_SESSION
+  bw get attachment yknano.pub --itemid ac755655-4d35-44bf-9bfc-b0ce013407c6 --session $BW_SESSION
+  sudo mv yk5c $HOME/.ssh 
+  sudo mv yk5c.pub $HOME/.ssh 
+  sudo mv yknano $HOME/.ssh 
+  sudo mv yknano.pub $HOME/.ssh 
+}
+
+save_secrets
+
+
