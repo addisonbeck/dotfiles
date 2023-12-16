@@ -6,7 +6,6 @@ install_package koekeishiya/formulae/yabai
 
 sudo touch /private/etc/sudoers.d/yabai
 echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai)) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
-
 sudo nvram boot-args=-arm64e_preview_abi
 
 yabai --start-service
