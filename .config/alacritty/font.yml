@@ -5,7 +5,7 @@ font:
     # family: "Dank Mono"
     # style: Regular
   italic:
-    family: "MonaspiceRd NFM"
+    family: "MonaspiceRn NFM"
     style: Regular
     # family: "Dank Mono"
     # style: Italic
@@ -15,7 +15,7 @@ font:
     # family: "Dank Mono"
     # style: Bold
   bold_italic:
-    family: "MonaspiceRd NFM"
+    family: "MonaspiceRn NFM"
     style: Bold
     # family: "Dank Mono"
     # style: Bold
