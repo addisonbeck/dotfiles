@@ -13,11 +13,7 @@ bash main.sh
 To install on an existing machine:
 
 ```bash
-cd ~ &&
-git init &&
-git remote add origin https://github.com/addisonbeck/dotfiles.git &&
-git fetch &&
-git checkout -f main &&
-git remote set-url origin git@github.com:addisonbeck/dotfiles.git
-
+curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/clone-self \
+--output main.sh && \
+bash main.sh
 ```
