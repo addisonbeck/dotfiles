@@ -16,6 +16,7 @@ install_fish () {
 
 install_omf () {
   NONINTERACTIVE=true fish -c "curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish"
+  fish -c "omf install foreign-env"
 }
 
 set_default_shell () {

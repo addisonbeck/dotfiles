@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
+export BITWARDENCLI_APPDATA_DIR=~/.config/bw-p
+
 login_to_bw () {
+  bw logout
   BW_SESSION="$(bw login --raw)"
+  bw sync
 }
 
 save_secrets () {

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+export BITWARDENCLI_APPDATA_DIR=~/.config/bw-p
+export BW_CLIENTID=$BW_CLIENTID_PERSONAL
+export BW_CLIENTSECRET=$BW_CLIENTSECRET_PERSONAL
+export BW_MP=$BW_MP_PERSONAL
+
 login_to_bw () {
   bw logout
   bw login --apikey
