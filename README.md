@@ -10,15 +10,15 @@
 
 I try and build as much remotely as I can. The scripts here can configure OSX clients to do some tasks and Ubuntu servers to do others. The tools I use the most are:
 
-1. Bitwarden for managing secrets
-1. Yubikeys for identifying myself
-1. Alacritty as a terminal emulator
-1. Fish as a shell
-1. Tmux as a terminal multiplexer
-1. Starship as a prompt
-1. Neovim as an editor
-1. Yabai as a tiling window manager for OSX
-1. Sketchybar as a status bar on OSX
+1. [Bitwarden](https://bitwarden.com) for managing secrets
+1. [Yubikeys](https://www.yubico.com) for identifying myself
+1. [Alacritty](https://github.com/alacritty/alacritty) as a terminal emulator
+1. [Fish](https://github.com/fish-shell/fish-shell) as a shell
+1. [Tmux](https://github.com/tmux/tmux) as a terminal multiplexer
+1. [Starship](https://github.com/starship/starship) as a prompt
+1. [Neovim](https://github.com/neovim/neovim) as an editor
+1. [Yabai](https://github.com/koekeishiya/yabai) as a tiling window manager for OSX
+1. [Sketchybar](https://github.com/FelixKratz/SketchyBar) as a status bar on OSX
 
 ## Installing
 
