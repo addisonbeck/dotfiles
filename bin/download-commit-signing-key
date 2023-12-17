@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+login_to_bw () {
+  bw logout
+  bw login --apikey
+  bw sync
+  BW_SESSION=$(bw unlock --passwordenv BW_MP --raw)
+}
+
+save_secrets () {
+  bw get attachment github --itemid ac755655-4d35-44bf-9bfc-b0ce013407c6 --session $BW_SESSION
+  bw get attachment github.pub --itemid ac755655-4d35-44bf-9bfc-b0ce013407c6 --session $BW_SESSION
+  sudo mv github $HOME/.ssh 
+  sudo mv github.pub $HOME/.ssh 
+}
+
+login_to_bw
+save_secrets

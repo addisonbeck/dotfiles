@@ -6,7 +6,7 @@ defaults write com.apple.Finder AppleShowAllFiles 1
 # Permanently hide the dock
 defaults write com.apple.dock autohide-delay -float 9999; killall Dock
 
-# Show path bar
+# Show path bar in Finder
 defaults write com.apple.finder ShowPathbar -bool true
 
 # Do not show warning when changing the file extension
@@ -30,6 +30,21 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 
 # Disable startup sound
 sudo nvram SystemAudioVolume=%01
+
+# Show file extensions in Finder
+defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
+
+# Default to list view in Finder windows
+defaults write com.apple.finder "FXPreferredViewStyle" -string "Nlsv"
+
+# Keep folders on top in Finder windows
+defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
+
+# Automatically clear items from the trash after 30 days
+defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
+
+# When saving a new document start in the Home directory
+defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "false"
 
 # fonts=(
 # 	font-fira-code

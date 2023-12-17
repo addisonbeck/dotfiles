@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+login_to_bw () {
+  BW_SESSION="$(bw login --raw)"
+}
+
+save_secrets () {
+  bw get attachment .env --itemid ac755655-4d35-44bf-9bfc-b0ce013407c6 --session $BW_SESSION
+  sudo mv .env $HOME
+}
+
+login_to_bw
+save_secrets
+
