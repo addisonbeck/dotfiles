@@ -45,7 +45,7 @@ sketchybar --default icon.font="MonaspiceAr NF:Bold:17.0"  \
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces
 
-SPACE_ICONS=("󰊠" "" "󰀹" "󰛮" "5" "6" "7" "8" "9" "10")
+SPACE_ICONS=("󰊠" "" "" "" "" "6" "7" "8" "9" "10")
 
 for i in "${!SPACE_ICONS[@]}"
 do

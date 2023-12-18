@@ -7,7 +7,7 @@ fi
 if [[ "$(uname -v)" == *"Darwin"* ]]; then
    PLATFORM='mac'
 fi
-if [ "$(grep -c "NAME=\"Raspbian" /etc/os-release)" -ge 1 ]; then
+if [ "$(grep -c Raspbian /etc/os-release)" -ge 1 ]; then
    PLATFORM='raspbian'
 fi
 
@@ -15,7 +15,7 @@ install_package () {
   if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" install $1
   fi
-  if [[ "$PLATFORM" == "raspbian" ]]
+  if [[ "$PLATFORM" == "raspbian" ]]; then
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" install $1
   fi
   if [[ "$PLATFORM" == "mac" ]]; then
