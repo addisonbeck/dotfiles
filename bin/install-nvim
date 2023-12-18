@@ -3,7 +3,7 @@
 source platform
 
 install_neovim () {
-  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+  if [[ "$PLATFORM" == "ubuntu"* || "$PLATFORM" == "raspbian" ]]; then
     install_package build-essential
     install_package ripgrep
     install_package fd-find

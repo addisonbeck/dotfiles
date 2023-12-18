@@ -3,7 +3,7 @@
 source platform
 
 install_starship () {
-  if [[ "$PLATFORM" == "ubuntu" ]]; then
+  if [[ "$PLATFORM" == "ubuntu" || "$PLATFORM" == "raspbian" ]]; then
     sudo curl -sS https://starship.rs/install.sh | sudo sh
     touch ~/.config/starship-installed
   fi

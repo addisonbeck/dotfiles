@@ -7,9 +7,15 @@ fi
 if [[ "$(uname -v)" == *"Darwin"* ]]; then
    PLATFORM='mac'
 fi
+if [ "$(grep -c "NAME=\"Raspbian" /etc/os-release)" -ge 1 ]; then
+   PLATFORM='raspbian'
+fi
 
 install_package () {
   if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+    sudo apt-get -qq -o "DPkg::Lock::Timeout=180" install $1
+  fi
+  if [[ "$PLATFORM" == "raspbian" ]]
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" install $1
   fi
   if [[ "$PLATFORM" == "mac" ]]; then
@@ -21,6 +27,9 @@ remove_package () {
   if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" remove $1
   fi
+  if [[ "$PLATFORM" == "raspbian" ]]; then
+    sudo apt-get -qq -o "DPkg::Lock::Timeout=180" remove $1
+  fi
   if [[ "$PLATFORM" == "mac" ]]; then
     brew uninstall -q $1
   fi
@@ -30,6 +39,9 @@ update_packages () {
   if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" update > /dev/null
   fi
+  if [[ "$PLATFORM" == "raspbian" ]]; then
+    sudo apt-get -qq -o "DPkg::Lock::Timeout=180" update > /dev/null
+  fi
   if [[ "$PLATFORM" == "mac" ]]; then
     brew update -q
   fi
@@ -37,6 +49,9 @@ update_packages () {
 
 upgrade_packages () {
   if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+    sudo -E apt-get -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" -o "DPkg::Lock::Timeout=180" upgrade > /dev/null
+  fi
+  if [[ "$PLATFORM" == "raspbian" ]]; then
     sudo -E apt-get -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" -o "DPkg::Lock::Timeout=180" upgrade > /dev/null
   fi
   if [[ "$PLATFORM" == "mac" ]]; then
