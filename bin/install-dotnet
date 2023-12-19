@@ -1,22 +1,29 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 source platform
 
 register_microsoft_repo () {
-  install_package "wget apt-transport-https software-properties-common"
-  source /etc/os-release
-  wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
-  sudo dpkg -i packages-microsoft-prod.deb
-  sudo touch /etc/apt/preferences
-  echo -e "Package: * \nPin: origin \"packages.microsoft.com\" \nPin-Priority: 1001" | sudo tee -a /etc/apt/preferences > /dev/null
-  rm packages-microsoft-prod.deb
-  update_packages
+    install_package "wget apt-transport-https software-properties-common"
+    source /etc/os-release
+    wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
+    sudo touch /etc/apt/preferences
+    echo -e "Package: * \nPin: origin \"packages.microsoft.com\" \nPin-Priority: 1001" | sudo tee -a /etc/apt/preferences > /dev/null
+    rm packages-microsoft-prod.deb
+    update_packages
 }
 
 install_dotnet_sdk () {
-  install_package "dotnet-sdk-6.0"
-  install_package "dotnet-sdk-7.0"
-  install_package "dotnet-sdk-8.0"
+  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+    install_package "dotnet-sdk-6.0"
+    install_package "dotnet-sdk-7.0"
+    install_package "dotnet-sdk-8.0"
+  fi
+  if [[ "$PLATFORM" == "mac"* ]]; then
+    install_package dotnet@6
+    install_package dotnet@7
+    install_package dotnet@8
+  fi
 }
 
 if [[ "$PLATFORM" == "ubuntu"* ]]; then

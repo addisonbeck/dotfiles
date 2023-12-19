@@ -82,6 +82,9 @@ require("lazy").setup({
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim"
   },
+  { 
+    "github/copilot.vim"
+  }
 })
 
 require('telescope').load_extension('fzy_native')
