@@ -18,6 +18,7 @@ install_gh () {
 
 install_gh_dash {
   gh extension install dlvhdr/gh-dash
+  gh extension install github/gh-copilot
 }
 
 install_gh
