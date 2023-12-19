@@ -1,0 +1,26 @@
+#!/bin/sh
+
+export BACKGROUND="#000000"
+export FOREGROUND="#d4be98"
+
+export BLACK="#000000"
+export RED="#ea6962"
+export GREEN="#a9b665"
+export YELLOW="#d8a657"
+export BLUE="#7daea3"
+export MAGENTA="#d3869b"
+export CYAN="#89b482"
+export WHITE="#d4be98"
+
+export BRIGHTBLACK="#3c3836"
+export BRIGHTRED="#ea6962"
+export BRIGHTGREEN="#a9b665"
+export BRIGHTYELLOW="#d8a657"
+export BRIGHTBLUE="#7daea3"
+export BRIGHTMAGENTA="#d3869b"
+export BRIGHTCYAN="#89b482"
+export BRIGHTWHITE="#d4be98"
+
+export BLACKHEX="0xff000000"
+export YELLOWHEX="0xffd8a657"
+export WHITEHEX="0xffd4be98"
