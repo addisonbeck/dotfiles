@@ -3,7 +3,9 @@
 OSUSERNAME="me"
 
 set_timezone () {
-  sudo timedatectl set-timezone America/Chicago
+  timedatectl set-timezone America/Chicago
+  ntpd -qg
+  hwclock -w
 }
 
 build_user_directory () {
@@ -31,8 +33,14 @@ set_user_permissions () {
   chmod 700 /home/$OSUSERNAME/.cache
 }
 
+setup_pacman () {
+  pacman-key --init
+  pacman-key --populate
+  pacman -Syu
+}
+
 install_git () {
-  pacman -S git
+  pacman -Sy git
 }
 
 install_self () {
@@ -55,6 +63,7 @@ copy_user_ssh_keys
 create_user
 remove_sudo_password_requirement
 set_user_permissions
+setup_pacman
 install_git
 install_self
 disable_root_login
