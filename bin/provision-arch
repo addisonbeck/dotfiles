@@ -31,6 +31,10 @@ set_user_permissions () {
   chmod 700 /home/$OSUSERNAME/.cache
 }
 
+install_git () {
+  pacman -S git
+}
+
 install_self () {
   cd /home/$OSUSERNAME
   su -s /bin/bash -c "git init && git remote add origin https://github.com/addisonbeck/dotfiles.git && git fetch && git checkout -f main && git remote set-url origin git@github.com:addisonbeck/dotfiles.git" -l $OSUSERNAME
@@ -51,6 +55,7 @@ copy_user_ssh_keys
 create_user
 remove_sudo_password_requirement
 set_user_permissions
+install_git
 install_self
 disable_root_login
 login
