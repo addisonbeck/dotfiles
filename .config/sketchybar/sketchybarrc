@@ -15,8 +15,8 @@ sketchybar --bar height=37              \
                  corner_radius=30       \
                  sticky=true
 
-sketchybar --default icon.font="${NORMAL}:Regular:18.0"   \
-                     label.font="${NORMAL}:Regular:14.0"  \
+sketchybar --default icon.font="${BOLD}:Bold:20"          \
+                     label.font="${NORMAL}:Regular:14"    \
                      icon.color=$WHITEHEX                 \
                      label.color=$WHITEHEX                \
                      padding_left=5                       \
@@ -68,6 +68,7 @@ sketchybar --add item clock right                              \
            --set       battery script="$PLUGIN_DIR/battery.sh"       \
                                update_freq=120                       \
                                padding_left=8                        \
+                               icon.size
                                padding_right=2                       \
                                background.border_width=0             \
                                background.height=24                  \

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source platform
+
+clone_recipes () {
+  cd $HOME 
+  git clone git@github.com:addisonbeck/recipes.git
+}
+
+clone_recipes

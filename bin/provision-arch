@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+OSUSERNAME="me"
+
+set_timezone () {
+  sudo timedatectl set-timezone America/Chicago
+}
+
+build_user_directory () {
+  mkdir -p /home/$OSUSERNAME/.ssh
+  mkdir -p /home/$OSUSERNAME/.cache
+}
+
+copy_user_ssh_keys () {
+  cp /root/.ssh/authorized_keys /home/$OSUSERNAME/.ssh/
+}
+
+create_user () {
+  useradd $OSUSERNAME
+}
+
+remove_sudo_password_requirement () {
+  echo "$OSUSERNAME ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$OSUSERNAME
+}
+
+set_user_permissions () {
+  chown -R $OSUSERNAME:$OSUSERNAME /home/$OSUSERNAME/
+  chown -R $OSUSERNAME:$OSUSERNAME /home/$OSUSERNAME
+  chmod 700 /home/$OSUSERNAME/.ssh
+  chmod 644 /home/$OSUSERNAME/.ssh/authorized_keys
+  chmod 700 /home/$OSUSERNAME/.cache
+}
+
+install_self () {
+  cd /home/$OSUSERNAME
+  su -s /bin/bash -c "git init && git remote add origin https://github.com/addisonbeck/dotfiles.git && git fetch && git checkout -f main && git remote set-url origin git@github.com:addisonbeck/dotfiles.git" -l $OSUSERNAME
+}
+
+disable_root_login () {
+  sudo sed -i '/^'"PermitRootLogin"'/d' /etc/ssh/sshd_config
+  sudo echo "PermitRootLogin no" >> /etc/ssh/sshd_config
+}
+
+login () {
+  su -l $OSUSERNAME
+}
+
+set_timezone
+build_user_directory
+copy_user_ssh_keys
+create_user
+remove_sudo_password_requirement
+set_user_permissions
+install_self
+disable_root_login
+login
+
