@@ -26,10 +26,18 @@ This config isn't meant to be usable by anyone else, but you might enjoy poking 
 
 If you're me (or really just want to try) there are scripts for provisioning in the repo.
 
-To build a user and install from root on a fresh machine:
+To build a user and install from root on a fresh machine on ubuntu:
 
 ```bash
 curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/provision-machine \
+--output main.sh && \
+bash main.sh
+```
+
+To build a user and install from root on a fresh machine on arch:
+
+```bash
+curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/provision-arch \
 --output main.sh && \
 bash main.sh
 ```
