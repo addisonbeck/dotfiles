@@ -3,7 +3,16 @@
 source platform
 
 install_no_machine () {
-  install_package nomachine
+  if [[ "$PLATFORM" == "mac" ]]; then
+    brew install --cask nomachine
+  fi
+  if [[ "$PLATFORM" == "arch" ]]; then
+    cd ~
+    git clone https://aur.archlinux.org/nomachine.git
+    cd nomachine
+    mkpkg -sirc
+    pacman -Rns $(pacman -Qdtq)	
+  fi
 }
 
 install_no_machine
