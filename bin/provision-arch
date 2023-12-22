@@ -36,12 +36,9 @@ setup_pacman () {
   pacman-key --init
   pacman-key --populate
   pacman -Syu
-  pacman -Sy which
-  pacman -Sy inetutils
-}
-
-install_git () {
-  pacman -Sy git
+  pacman -Syu --noconfirm which
+  pacman -Syu --noconfirm inetutils
+  pacman -Syu --noconfirm git
 }
 
 install_self () {
@@ -65,7 +62,6 @@ create_user
 remove_sudo_password_requirement
 set_user_permissions
 setup_pacman
-install_git
 install_self
 disable_root_login
 login

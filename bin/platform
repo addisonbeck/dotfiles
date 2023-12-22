@@ -26,7 +26,7 @@ install_package () {
     brew install -q $1 
   fi
   if [[ "$PLATFORM" == "arch" ]]; then
-    sudo pacman -Syu $1
+    sudo pacman -Syu --noconfirm $1
   fi
 }
 
