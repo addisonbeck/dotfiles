@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
 install-xserver
+install-nomachine
