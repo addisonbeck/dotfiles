@@ -5,7 +5,7 @@ cd ~
 install-bitwarden
 download-env
 source .env
-download-commit-sigining-key
+download-commit-signing-key
 install-tmux
 install-gh
 install-fish

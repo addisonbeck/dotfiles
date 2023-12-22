@@ -35,7 +35,7 @@ set_user_permissions () {
 setup_pacman () {
   pacman-key --init
   pacman-key --populate
-  pacman -Syu
+  pacman -Syu --noconfirm
   pacman -Syu --noconfirm which
   pacman -Syu --noconfirm inetutils
   pacman -Syu --noconfirm git
