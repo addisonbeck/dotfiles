@@ -11,7 +11,7 @@ install_no_machine () {
     git clone https://aur.archlinux.org/nomachine.git
     cd nomachine
     makepkg -sirc
-    pacman -Rns $(pacman -Qdtq)	
+    sudo pacman -Rns $(pacman -Qdtq)	
     sudo systemctl enable --now nxserver.service
   fi
 }
