@@ -7,6 +7,7 @@ install_neovim () {
     install_package build-essential
     install_package ripgrep
     install_package fd-find
+    install_package gcc
     ln -s $(which fdfind) ~/bin/fd
     wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
     tar xvzf nvim-linux64.tar.gz

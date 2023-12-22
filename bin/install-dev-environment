@@ -1,15 +1,16 @@
-#!/usr/bin/bash
-
-mkdir -p /home/$(whoami)/apps
-chmod 700 /home/$(whoami)/apps
+#!/usr/bin/env bash
 
 # make-swap
-configure-secrets
+cd ~
+install-bitwarden
+download-env
+source .env
+download-commit-sigining-key
+install-tmux
+install-gh
 install-fish
-install-nvim
+install-starship
 install-dotnet
 install-node
 install-go
-git remote set-url origin git@github.com:addisonbeck/dotfiles.git
-
-sudo su -l me
+install-nvim
