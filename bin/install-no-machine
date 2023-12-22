@@ -12,6 +12,7 @@ install_no_machine () {
     cd nomachine
     makepkg -sirc
     pacman -Rns $(pacman -Qdtq)	
+    sudo systemctl enable --now nxserver.service
   fi
 }
 
