@@ -9,7 +9,7 @@ install_go () {
     sudo tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz
     rm go1.21.4.linux-amd64.tar.gz
   fi
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
     install_package go
   fi
 }

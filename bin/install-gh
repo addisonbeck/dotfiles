@@ -11,7 +11,7 @@ install_gh () {
     && install_package gh
   fi
 
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
     install_package gh
   fi
 }

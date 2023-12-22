@@ -14,7 +14,7 @@ install_tmux () {
     rm ~/tmux-3.3a.tar.gz
     rm -rf ~/tmux-3.3a
   fi
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
     install_package tmux
   fi
 }

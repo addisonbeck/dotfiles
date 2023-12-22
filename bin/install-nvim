@@ -18,7 +18,7 @@ install_neovim () {
     rm -rf ~/nvim-linux64
   fi
 
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
     install_package ripgrep
     install_package fd
     install_package neovim

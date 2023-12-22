@@ -11,6 +11,10 @@ install_starship () {
     install_package starship
     touch ~/.config/starship-installed
   fi
+  if [[ "$PLATFORM" == "arch" ]]; then
+    install_package starship
+    touch ~/.config/starship-installed
+  fi
 }
 
 install_starship

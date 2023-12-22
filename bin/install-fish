@@ -9,7 +9,7 @@ install_fish () {
     update_packages
     install_package fish
   fi
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
     install_package fish
   fi
 }
@@ -20,12 +20,7 @@ install_omf () {
 }
 
 set_default_shell () {
-  if [[ "$PLATFORM" == "ubuntu" || "$PLATFORM" == "raspbian" ]]; then
-    echo /usr/bin/fish | sudo tee -a /etc/shells
-  fi
-  if [[ "$PLATFORM" == "mac" ]]; then
-    echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
-  fi
+  echo $(which fish) | sudo tee -a /etc/shells
   sudo chsh -s $(which fish) $(whoami)
 }
 
