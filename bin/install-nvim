@@ -22,6 +22,7 @@ install_neovim () {
   if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
     install_package ripgrep
     install_package fd
+    install_package gcc
     install_package neovim
   fi
 }
