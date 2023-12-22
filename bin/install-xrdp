@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_xrdp () {
+  if [[ "$PLATFORM" == "arch" ]]; then
+    cd ~
+    git clone https://aur.archlinux.org/xrdp.git
+    cd xrdp
+    makepkg -sirc
+    pacman -Rns $(pacman -Qdtq)	
+  fi
+}
+
+install_xrdp
