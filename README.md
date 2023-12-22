@@ -8,7 +8,7 @@
 
 ## Overview
 
-I try and build as much remotely as I can. The scripts here can configure OSX clients to do some tasks and Ubuntu servers to do others. The tools I use the most are:
+I try and build as much remotely as I can. The scripts here can configure OSX clients to do some tasks, Ubuntu servers to do others, and Arch to do a bit of both. The tools I use the most are:
 
 1. [Bitwarden](https://bitwarden.com) for managing secrets
 1. [Yubikeys](https://www.yubico.com) for identifying myself
