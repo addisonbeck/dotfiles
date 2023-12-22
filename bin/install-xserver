@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_xserver () {
+  install_package xserver
+}
+
+install_xserver
