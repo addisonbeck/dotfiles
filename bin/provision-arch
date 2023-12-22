@@ -4,7 +4,6 @@ OSUSERNAME="me"
 
 set_timezone () {
   timedatectl set-timezone America/Chicago
-  ntpd -qg
   hwclock -w
 }
 
@@ -37,6 +36,8 @@ setup_pacman () {
   pacman-key --init
   pacman-key --populate
   pacman -Syu
+  pacman -Sy which
+  pacman -Sy hostname
 }
 
 install_git () {
