@@ -37,7 +37,7 @@ setup_pacman () {
   pacman-key --populate
   pacman -Syu
   pacman -Sy which
-  pacman -Sy hostname
+  pacman -Sy inetutils
 }
 
 install_git () {
