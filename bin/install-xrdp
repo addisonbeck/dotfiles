@@ -8,7 +8,7 @@ install_xrdp () {
     git clone https://aur.archlinux.org/xrdp.git
     cd xrdp
     makepkg -sirc
-    pacman -Rns $(pacman -Qdtq)	
+    sudo pacman -Rns $(pacman -Qdtq)	
   fi
 }
 
