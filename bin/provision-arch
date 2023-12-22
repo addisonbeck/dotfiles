@@ -39,6 +39,7 @@ setup_pacman () {
   pacman -Syu --noconfirm which
   pacman -Syu --noconfirm inetutils
   pacman -Syu --noconfirm git
+  pacman -Syu --noconfirm base-devel
 }
 
 install_self () {

@@ -10,7 +10,7 @@ install_no_machine () {
     cd ~
     git clone https://aur.archlinux.org/nomachine.git
     cd nomachine
-    mkpkg -sirc
+    makepkg -sirc
     pacman -Rns $(pacman -Qdtq)	
   fi
 }
