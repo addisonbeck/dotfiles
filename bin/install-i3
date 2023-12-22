@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_i3 () {
+  install_package i3-wm
+}
+
+install_i3
