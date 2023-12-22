@@ -12,9 +12,10 @@ install_no_machine () {
     cd nomachine
     makepkg -sirc
     sudo pacman -Rns $(pacman -Qdtq)	
-    sudo systemctl enable --now nxserver.service
     sudo sed -i "s/su/system-remote-login/g" /etc/pam.d/nx
     sudo sed -i 's/DefaultDesktopCommand "/DefaultDesktopCommand "env DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus /g' /usr/NX/etc/node.cfg
+    sudo systemctl enable --now nxserver.service
+    sudo /etc/NX/nxserver --restart
   fi
 }
 
