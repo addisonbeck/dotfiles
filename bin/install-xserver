@@ -4,6 +4,7 @@ source platform
 
 install_xserver () {
   install_package xorg-server
+  install_package xorg-xauth 
 }
 
 install_xserver
