@@ -3,7 +3,7 @@
 source platform
 
 install_xserver () {
-  install_package xserver
+  install_package xorg-server
 }
 
 install_xserver
