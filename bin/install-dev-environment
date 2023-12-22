@@ -14,3 +14,4 @@ install-dotnet
 install-node
 install-go
 install-nvim
+su -l $(whoami)
