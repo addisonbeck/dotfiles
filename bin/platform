@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 
 PLATFORM="unknown"
-if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+if command -v apt; then
    PLATFORM='ubuntu'
 fi
-if [[ "$(uname -v)" == *"Darwin"* ]]; then
+if command -v brew; then
    PLATFORM='mac'
 fi
 if [ "$(grep -c Raspbian /etc/os-release)" -ge 1 ]; then
    PLATFORM='raspbian'
 fi
+if command -v pacman
+then
+   PLATFORM='arch'
+fi
 
 install_package () {
-  if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" install $1
   fi
   if [[ "$PLATFORM" == "raspbian" ]]; then
@@ -21,10 +25,13 @@ install_package () {
   if [[ "$PLATFORM" == "mac" ]]; then
     brew install -q $1 
   fi
+  if [[ "$PLATFORM" == "arch" ]]; then
+    sudo pacman -Syu $1
+  fi
 }
 
 remove_package () {
-  if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" remove $1
   fi
   if [[ "$PLATFORM" == "raspbian" ]]; then
@@ -33,10 +40,13 @@ remove_package () {
   if [[ "$PLATFORM" == "mac" ]]; then
     brew uninstall -q $1
   fi
+  if [[ "$PLATFORM" == "arch" ]]; then
+    sudo pacman -Rsc $1
+  fi
 }
 
 update_packages () {
-  if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" update > /dev/null
   fi
   if [[ "$PLATFORM" == "raspbian" ]]; then
@@ -45,10 +55,14 @@ update_packages () {
   if [[ "$PLATFORM" == "mac" ]]; then
     brew update -q
   fi
+  if [[ "$PLATFORM" == "arch" ]]; then
+    sudo pacman -Syu
+    pacman -Rns $(pacman -Qdtq)	
+  fi
 }
 
 upgrade_packages () {
-  if [[ "$(uname -v)" == *"Ubuntu"* ]]; then
+  if [[ "$PLATFORM" == "ubuntu" ]]; then
     sudo -E apt-get -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" -o "DPkg::Lock::Timeout=180" upgrade > /dev/null
   fi
   if [[ "$PLATFORM" == "raspbian" ]]; then
@@ -56,5 +70,9 @@ upgrade_packages () {
   fi
   if [[ "$PLATFORM" == "mac" ]]; then
     brew upgrade -q
+  fi
+  if [[ "$PLATFORM" == "arch" ]]; then
+    sudo pacman -Syu
+    pacman -Rns $(pacman -Qdtq)	
   fi
 }

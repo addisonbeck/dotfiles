@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_vim () {
+  install_package vim
+}
+
+install_vim
