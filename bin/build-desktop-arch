@@ -6,3 +6,4 @@ install-xserver
 install-i3
 install-dmenu
 install-nomachine
+install-alacritty
