@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+clone-fonts
+clone-wallpaper
 install-xserver
 install-i3
 install-dmenu
