@@ -9,7 +9,7 @@ install_no_machine () {
   if [[ "$PLATFORM" == "arch" ]]; then
     cd ~
     git clone https://aur.archlinux.org/nomachine.git
-    cd nomachineinstall-nom
+    cd nomachineinstall
     sudo sed -i "s/_autoservice=n/_autoservice=y/g" ~/nomachine/PKGBUILD
     makepkg -sirc
     sudo pacman -Rns $(pacman -Qdtq)	
