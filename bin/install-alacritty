@@ -3,7 +3,7 @@
 source platform
 
 install_alacritty () {
-  if [[ "$PLATFORM" == "mac"* ]]; then
+  if [[ "$PLATFORM" == "mac"* || "$PLATFORM" == "arch" ]]; then
     install_package alacritty
   fi
 }

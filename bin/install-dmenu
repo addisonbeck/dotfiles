@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_dmenu () {
+  install_package dmenu
+}
+
+install_dmenu

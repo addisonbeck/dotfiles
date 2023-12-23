@@ -6,6 +6,7 @@ install_xserver () {
   install_package xorg-server
   install_package xorg-xauth 
   install_package xorg-xinit
+  install_package xorg-xsetroot
 }
 
 install_xserver
