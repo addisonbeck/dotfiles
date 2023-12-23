@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source platform
+
+clone_fonts () {
+  cd $HOME/.local/share
+  git clone git@github.com:addisonbeck/fonts.git
+}
+
+clone_fonts
