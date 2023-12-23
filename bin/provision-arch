@@ -40,6 +40,9 @@ setup_pacman () {
   pacman -Syu --noconfirm inetutils
   pacman -Syu --noconfirm git
   pacman -Syu --noconfirm base-devel
+  pacman -Syu --noconfirm noto-fonts
+  pacman -Syu --noconfirm noto-fonts-emoji
+  pacman -Syu --noconfirm noto-fonts-cjk
 }
 
 install_self () {
