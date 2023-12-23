@@ -9,12 +9,12 @@ install_no_machine () {
   if [[ "$PLATFORM" == "arch" ]]; then
     cd ~
     git clone https://aur.archlinux.org/nomachine.git
-    cd nomachine
+    cd nomachineinstall-nom
     sudo sed -i "s/_autoservice=n/_autoservice=y/g" ~/nomachine/PKGBUILD
     makepkg -sirc
     sudo pacman -Rns $(pacman -Qdtq)	
     sudo sed -i "s/su/system-remote-login/g" /etc/pam.d/nx
-    sudo sed - "s@DefaultDesktopCommand.*@DefaultDesktopCommand \"env DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus ~/bin/start-desktop-arch@g"
+    sudo sed -i "s@DefaultDesktopCommand.*@DefaultDesktopCommand \"env DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus ~/bin/start-desktop-arch@g"
     sudo systemctl enable --now nxserver.service
     sudo /etc/NX/nxserver --restart
   fi
