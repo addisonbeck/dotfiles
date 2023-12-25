@@ -7,6 +7,7 @@ install_i3 () {
   install_package picom
   install_package feh
   install_package neofetch
+  install_package chromium
 }
 
 install_i3
