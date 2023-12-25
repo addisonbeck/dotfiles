@@ -36,7 +36,8 @@ nmap j gj
 nmap k gk
 
 highlight Comment cterm=italic
-highlight EndOfBuffer ctermfg=black ctermbg=black
+highlight EndOfBuffer ctermfg=none ctermbg=none
 highlight StatusLine   cterm=none ctermfg=white ctermbg=black guibg=red
 highlight StatusLineNC cterm=none ctermfg=white ctermbg=black guibg=green
-
+highlight Normal ctermbg=none guibg=none
+highlight NonText ctermbg=none guibg=none
