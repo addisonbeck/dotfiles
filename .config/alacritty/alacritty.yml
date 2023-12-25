@@ -10,7 +10,7 @@ env:
 window:
   decorations: none
   dynamic_padding: true
-  opacity: 1.0
+  opacity: 0.85
   padding:
     # x: 255
     x: 30

@@ -173,3 +173,6 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+exec_always feh --recursive --bg-fill --randomize ~/wallpaper
+exec_always picom -f
