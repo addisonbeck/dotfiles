@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_kitty () {
+  if [[ "$PLATFORM" == "mac"* || "$PLATFORM" == "arch" ]]; then
+    install_package kitty
+  fi
+}
+
+install_kitty
