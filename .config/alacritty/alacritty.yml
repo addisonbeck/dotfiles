@@ -5,7 +5,7 @@ import:
 live_config_reload: true
 
 env:
-  TERM: xterm-256color
+  TERM: alacritty
 
 window:
   decorations: none
