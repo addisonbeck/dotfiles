@@ -41,9 +41,9 @@ highlight StatusLine   cterm=none ctermfg=white ctermbg=none guibg=red
 highlight StatusLineNC cterm=none ctermfg=white ctermbg=none guibg=green
 highlight StatusLineNC cterm=none ctermfg=white ctermbg=none guibg=green
 
-highlight SpellBad    gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=red guibg=none guisp=red
-highlight SpellCap    gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=red guibg=none guisp=red
-highlight SpellRare   gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=red guibg=none guisp=red
-highlight SpellLocal  gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=red guibg=none guisp=red
+highlight SpellBad    gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
+highlight SpellCap    gui=bold,undercurl cterm=bold,underdotted ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
+highlight SpellRare   gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
+highlight SpellLocal  gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
 
 set fillchars=eob:\ 
