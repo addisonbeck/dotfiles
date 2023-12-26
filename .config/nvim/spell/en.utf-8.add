@@ -204,3 +204,5 @@ gaps
 exec
 gaps
 font
+window
+termguicolors

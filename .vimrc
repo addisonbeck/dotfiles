@@ -3,7 +3,7 @@
 
 set noconfirm
 set noswapfile
-set termguicolors
+" set termguicolors
 
 set clipboard=unnamed
 set cmdheight=1
@@ -36,14 +36,12 @@ nmap <S-n> :set nu!<CR>
 nmap j gj
 nmap k gk
 
-highlight Comment cterm=italic
-highlight StatusLine   cterm=none ctermfg=white ctermbg=none guibg=red
-highlight StatusLineNC cterm=none ctermfg=white ctermbg=none guibg=green
-highlight StatusLineNC cterm=none ctermfg=white ctermbg=none guibg=green
+highlight Comment     gui=italic    cterm=italic    ctermfg=none ctermbg=none guifg=grey guibg=none guisp=none
+highlight StatusLine  gui=bold      cterm=bold      ctermfg=none ctermbg=none guibg=none guifg=grey guisp=none
 
-highlight SpellBad    gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
-highlight SpellCap    gui=bold,undercurl cterm=bold,underdotted ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
-highlight SpellRare   gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
-highlight SpellLocal  gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
+highlight SpellBad    gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
+highlight SpellCap    gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
+highlight SpellRare   gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
+highlight SpellLocal  gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
 
 set fillchars=eob:\ 
