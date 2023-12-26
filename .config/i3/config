@@ -1,14 +1,1 @@
-include ~/.config/i3/keybindings.conf
-
-font pango:MonaspiceNe Nerd Font, 14
-
-bar {
-  status_command i3status
-}
-
-gaps outer 42
-gaps inner 10
-default_border none
-
-exec_always --no-startup-id /usr/sbin/feh --bg-fill ~/wallpaper/night-swamp.jpg
-exec_always --no-startup-id /usr/sbin/picom
+include ~/.config/i3/config.d/*.conf

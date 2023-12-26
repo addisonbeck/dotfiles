@@ -9,6 +9,7 @@ install_i3 () {
   install_package neofetch
   install_package chromium
   install_package rofi
+  install_package i3status
 }
 
 install_i3
