@@ -3,6 +3,7 @@
 
 set noconfirm
 set noswapfile
+set termguicolors
 
 set clipboard=unnamed
 set cmdheight=1
@@ -36,9 +37,13 @@ nmap j gj
 nmap k gk
 
 highlight Comment cterm=italic
-" highlight EndOfBuffer ctermfg=gb ctermbg=none guibg=none guifg=gb
 highlight StatusLine   cterm=none ctermfg=white ctermbg=none guibg=red
 highlight StatusLineNC cterm=none ctermfg=white ctermbg=none guibg=green
-" highlight Normal ctermbg=none guibg=none guifg=gb ctermfg=gb
-" highlight NonText ctermbg=none guibg=none guifg=gb ctermfg=gb
+highlight StatusLineNC cterm=none ctermfg=white ctermbg=none guibg=green
+
+highlight SpellBad    gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=red guibg=none guisp=red
+highlight SpellCap    gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=red guibg=none guisp=red
+highlight SpellRare   gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=red guibg=none guisp=red
+highlight SpellLocal  gui=bold,underdotted cterm=bold,underdotted ctermfg=none ctermbg=none guifg=red guibg=none guisp=red
+
 set fillchars=eob:\ 
