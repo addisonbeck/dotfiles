@@ -11,12 +11,16 @@ install_gh () {
     && install_package gh
   fi
 
-  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
+  if [[ "$PLATFORM" == "mac" ]]; then
     install_package gh
+  fi
+
+  if [[ "$PLATFORM" == "arch" ]]; then
+    install_package github-cli
   fi
 }
 
-install_gh_dash {
+install_gh_dash () {
   gh extension install dlvhdr/gh-dash
   gh extension install github/gh-copilot
 }
