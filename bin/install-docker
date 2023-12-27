@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_docker () {
+  sudo addgroup docker
+  sudo usermod -aG docker $(whoami)
+  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+  fi
+  if [[ "$PLATFORM" == "mac"* ]]; then
+  fi
+  if [[ "$PLATFORM" == "arch"* ]]; then
+  fi
+}
+
+install_docker
+
