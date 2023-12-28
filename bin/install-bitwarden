@@ -3,6 +3,11 @@
 source platform
 
 install_bitwarden () {
+  if ! command -v unzip
+  then
+    install_package unzip
+  fi
+
   if [[ "$PLATFORM" == "ubuntu"* || "$PLATFORM" == "raspbian"* || "$PLATFORM" == "arch"* ]]; then
     install_package unzip
     curl -s --location "https://vault.bitwarden.com/download/?app=cli&platform=linux" --output bw.zip
