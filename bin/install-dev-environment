@@ -14,4 +14,5 @@ install-dotnet
 install-node
 install-go
 install-nvim
+install-docker
 exec fish
