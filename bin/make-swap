@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
 setup_swap () {
-  sudo fallocate -l 2G /swapfile
+  sudo dd if=/dev/zero of=/swapfile bs=1M count=2k status=progress
   sudo chmod 600 /swapfile
-  sudo mkswap /swapfile
+  sudo mkswap -U clear /swapfile
   sudo swapon /swapfile
   echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 }
