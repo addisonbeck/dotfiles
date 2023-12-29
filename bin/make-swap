@@ -1,8 +1,12 @@
 #!/usr/bin/bash
 
 setup_swap () {
+  sudo swapoff /swap/swapfile
+  sudo rm -f /swap/swapfile
+  sudo truncate -s 0 /etc/fstab
+
   sudo btrfs subvolume create /swap
-  sudo btrfs filesystem mkswapfile --size 4g --uuid clear /swap/swapfile
+  sudo btrfs filesystem mkswapfile --size 10g --uuid clear /swap/swapfile
   sudo swapon /swap/swapfile
   echo '/swap/swapfile none swap defaults 0 0' | sudo tee -a /etc/fstab
 }
