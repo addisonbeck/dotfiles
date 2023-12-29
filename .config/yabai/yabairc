@@ -18,8 +18,8 @@ yabai -m config                                 \
     auto_balance                 off            \
     top_padding                  50             \
     bottom_padding               12             \
-    left_padding                 12             \
-    right_padding                12             \
+    left_padding                 42             \
+    right_padding                42             \
     window_gap                   06             \
     layout                       bsp            \
     mouse_modifier               fn             \
@@ -27,13 +27,8 @@ yabai -m config                                 \
     mouse_action2                resize         \
     mouse_drop_action            swap           
 
-yabai -m config --space 2 \
-  layout  stack \
-  left_padding                 42             \
-  right_padding                42             
-
 yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^Alacritty$" space="^2"
+yabai -m rule --add app="^Kitty$" space="^2"
 yabai -m rule --add app="^Safari$" space="^3"
 yabai -m rule --add app="^Chrome$" space="^3"
 yabai -m rule --add app="^Firefox$" space="^3"
