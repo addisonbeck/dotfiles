@@ -107,7 +107,7 @@ parse_config_item_custom_field () {
 }
 
 generate_passphrase () {
-  echo $(bw generate --passphrase --words 3 -c --includeNumber --separator - --session $BW_SESSION)
+  echo $(bw generate --passphrase --words 3 -c --includeNumber --separator ! --session $BW_SESSION)
 }
 
 if ! command -v bw
