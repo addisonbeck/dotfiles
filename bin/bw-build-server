@@ -58,17 +58,12 @@ setup_env () {
   # Running migrations scripts
   pwsh migrate.ps1
 
-  # Creating Identity and Data Protection licenses
-  ./create_certificates_linux.sh > fingerprints.txt
-
-  echo "GETTING DEV CERT"
   bw get attachment dev.cer --itemid 7123e5d3-f837-4a8c-810a-a7ca00fe1fdd --session $BW_SESSION
   bw get attachment dev.pfx --itemid 7123e5d3-f837-4a8c-810a-a7ca00fe1fdd --session $BW_SESSION
   sudo openssl x509 -inform DER -in dev.cer -out dev.crt
   sudo chmod 644 dev.crt
 
   # Adding the pfx license to dotnet's source folder
-  echo "ADDING DEV CRT TO .NET STORE"
   LICENSEPW=$(bw get password 7123e5d3-f837-4a8c-810a-a7ca00fe1fdd --session $BW_SESSION)
   pwsh -Command "using namespace System.Security.Cryptography.X509Certificates; \$store = [X509Store]::new('My', 'CurrentUser', 'ReadWrite'); \$store.Add([X509Certificate2]::new('${PWD}/dev.pfx', '${LICENSEPW}', [X509KeyStorageFlags]::PersistKeySet)); \$store.Dispose()"
 
