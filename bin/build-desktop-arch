@@ -1,9 +1,23 @@
 #!/usr/bin/env bash
+#
+source platform
 
 clone-fonts
+install_package noto-fonts
+install_package noto-fonts-emoji
+install_package noto-fonts-cjk
+
 clone-wallpaper
+
 install-xserver
-install-i3
-install-dmenu
 install-nomachine
+
+install-i3
+install-rofi
+install_package picom
+install_package rofi
+install_package feh
+
+install_package neofetch
 install-kitty
+install_package chromium

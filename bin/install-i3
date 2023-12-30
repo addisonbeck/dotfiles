@@ -4,19 +4,8 @@ source platform
 
 install_i3 () {
   install_package i3-wm
-  install_package picom
-  install_package feh
-  install_package neofetch
-  install_package chromium
-  install_package rofi
   install_package i3status
-  install_package noto-fonts
-  install_package noto-fonts-emoji
-  install_package noto-fonts-cjk
-  clone_wallpaper
-  clone_fonts
-  install-nomachine
-  install-kitty
+
 }
 
 install_i3
