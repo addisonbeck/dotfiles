@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 export BITWARDENCLI_APPDATA_DIR=~/.config/bw-w
+export BW_CLIENTID=$BW_CLIENTID_WORK
+export BW_CLIENTSECRET=$BW_CLIENTSECRET_WORK
+export BW_MP=$BW_MP_WORK
 
 PLATFORM="unknown"
 if command -v apt; then
