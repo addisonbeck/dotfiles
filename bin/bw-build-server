@@ -5,15 +5,15 @@ source bw-platform
 install_dependencies () {
   if ! command -v docker
   then
-    bw-install-docker
+    install-docker
   fi
   if ! command -v dotnet
   then
-    bw-install-dotnet
+    install-dotnet
   fi
   if ! command -v pwsh
   then
-    bw-install-pwsh
+    install-powershell
   fi
 
   if [[ -z "${BW_SESSION}" ]]; then
@@ -61,42 +61,22 @@ setup_env () {
   # Creating Identity and Data Protection licenses
   ./create_certificates_linux.sh > fingerprints.txt
 
+  echo "GETTING DEV CERT"
   bw get attachment dev.cer --itemid 7123e5d3-f837-4a8c-810a-a7ca00fe1fdd --session $BW_SESSION
   bw get attachment dev.pfx --itemid 7123e5d3-f837-4a8c-810a-a7ca00fe1fdd --session $BW_SESSION
   sudo openssl x509 -inform DER -in dev.cer -out dev.crt
   sudo chmod 644 dev.crt
 
-  if [[ "$PLATFORM" == "ubuntu" ]]; then
-    sudo mv dev.crt /usr/local/share/ca-certificates/
-    sudo chmod 644 /usr/local/share/ca-certificates/dev.crt
-    sudo mv data_protection_dev.crt /usr/local/share/ca-certificates/
-    sudo mv identity_server_dev.crt /usr/local/share/ca-certificates/
-    update-ca-certificates
-    pwsh -Command "using namespace System.Security.Cryptography.X509Certificates; \$store = [X509Store]::new('My', 'CurrentUser', 'ReadWrite'); \$store.Add([X509Certificate2]::new('/home/me/environment-setup/dev.pfx', '$LICENSINGCERTPW', [X509KeyStorageFlags]::PersistKeySet)); \$store.Dispose()"
-
-  fi
-  if [[ "$PLATFORM" == "arch" ]]; then
-    sudo mv dev.crt /etc/ca-certificates/trust-source/anchors
-    sudo mv data_protection_dev.crt /etc/ca-certificates/trust-source/anchors
-    sudo mv identity_server_dev.crt /etc/ca-certificates/trust-source/anchors
-    sudo update-ca-trust
-  fi
-
   # Adding the pfx license to dotnet's source folder
-  pwsh -Command "using namespace System.Security.Cryptography.X509Certificates; \$store = [X509Store]::new('My', 'CurrentUser', 'ReadWrite'); \$store.Add([X509Certificate2]::new('/home/me/environment-setup/dev.pfx', '$LICENSEPW', [X509KeyStorageFlags]::PersistKeySet)); \$store.Dispose()"
-
-  # Configuring project secrets
-  IDENTITYFINGERPRINT=$(awk '/Identity Server Dev/ { print $4}' fingerprints.txt)
-  DATAPROTECTIONFINGERPRINT=$(awk '/Data Protection Dev/ { print $4}' fingerprints.txt)
-  rm fingerprints.txt
+  echo "ADDING DEV CRT TO .NET STORE"
+  LICENSEPW=$(bw get password 7123e5d3-f837-4a8c-810a-a7ca00fe1fdd --session $BW_SESSION)
+  pwsh -Command "using namespace System.Security.Cryptography.X509Certificates; \$store = [X509Store]::new('My', 'CurrentUser', 'ReadWrite'); \$store.Add([X509Certificate2]::new('${PWD}/dev.pfx', '${LICENSEPW}', [X509KeyStorageFlags]::PersistKeySet)); \$store.Dispose()"
 
   bw get attachment secrets-for-env-setup.json --itemid d4195f67-dd43-4465-84d7-ae320013e6ff --session $BW_SESSION
   mv secrets-for-env-setup.json secrets.json
   bw get attachment additional-keys-for-cloud-services.json --itemid d4195f67-dd43-4465-84d7-ae320013e6ff --session $BW_SESSION
 
   sed -i "s/DB_PASSWORD/$DBPASSWORD/g" secrets.json
-  sed -i "s/DATAPROTECTION_THUMBPRINT/$DATAPROTECTIONFINGERPRINT/g" secrets.json
-  sed -i "s/IDENTITY_THUMBPRINT/$IDENTITYFINGERPRINT/g" secrets.json
 
   INSTALLATIONID=$(parse_config_item_custom_field "installation-id")
   INSTALLATIONKEY=$(parse_config_item_custom_field "installation-key")
