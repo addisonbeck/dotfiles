@@ -94,7 +94,7 @@ install_bitwarden () {
 login_to_bw () {
   bw logout
   if [[ -z "${BW_CLIENT_SECRET}" ]]; then
-    bw login --apiKey
+    bw login --apikey
     export BW_SESSION=$(bw unlock --passwordenv BW_MP --raw)
   else
     export BW_SESSION="$(bw login --raw)"
