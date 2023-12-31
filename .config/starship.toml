@@ -3,7 +3,13 @@
 add_newline = true
 
 format = """$hostname$character"""
-right_format = """$os$directory$git_status$cmd_duration$memory_usage$time"""
+right_format = """$custom$os$directory$git_status$cmd_duration$memory_usage$time"""
+
+[custom.hn]
+command = 'hostname'
+when = true
+style = 'bold green'
+format = '[\[$output\]]($style) '
 
 [directory]
 truncation_length=1

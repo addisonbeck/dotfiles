@@ -2,6 +2,10 @@
 
 OSUSERNAME="me"
 
+set_hostname () {
+  hostnamectl set-hostname dev
+}
+
 set_timezone () {
   timedatectl set-timezone America/Chicago
   hwclock -w
