@@ -19,12 +19,15 @@ install_dependencies () {
   if [[ -z "${BW_SESSION}" ]]; then
     login_to_bw
   fi
+
+  if [ ! -d "$HOME/bitwarden" ]; then
+    cd $HOME
+    mkdir bitwarden
+  fi
 }
 
 clone_repo () {
-  cd $HOME
-  mkdir bitwarden
-  cd bitwarden
+  cd $HOME/bitwarden
   git clone git@github.com:bitwarden/server.git
   cd server 
 }

@@ -27,9 +27,11 @@ install_dotnet_sdk () {
   if [[ "$PLATFORM" == "arch"* ]]; then
     install_package dotnet-runtime-6.0
     install_package dotnet-sdk-6.0
+    install_package aspnet-runtime-6.0
 
     install_package dotnet-runtime
     install_package dotnet-sdk
+    install_package aspnet-runtime
   fi
 }
 
