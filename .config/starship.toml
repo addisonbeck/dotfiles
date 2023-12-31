@@ -7,9 +7,11 @@ right_format = """$custom$os$directory$git_status$cmd_duration$memory_usage$time
 
 [custom.hn]
 command = 'hostname'
+shell = 'sh'
 when = true
-style = 'bold green'
+style = 'bold blue'
 format = '[\[$output\]]($style) '
+ignore_timeout = true
 
 [directory]
 truncation_length=1
