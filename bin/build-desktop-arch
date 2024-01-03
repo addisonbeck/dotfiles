@@ -17,6 +17,7 @@ install-rofi
 install_package picom
 install_package rofi
 install_package feh
+install_package polybar
 
 install_package neofetch
 install-kitty

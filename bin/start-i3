@@ -1,0 +1,8 @@
+#!/bin/env bash
+
+killall -q picom
+killall -q polybar
+
+polybar 2>&1 | tee -a /tmp/polybar.log & disown
+picom 2>&1 | tee -a /tmp/picom.log & disown
+

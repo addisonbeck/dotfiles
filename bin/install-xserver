@@ -9,7 +9,9 @@ install_xserver () {
   install_package xorg-xsetroot
   install_package xorg-xdpyinfo
   install_package xorg-xrandr
+  install_package xorg-xrdb
   install_package xclip
+  install_package xcb-util-xrm
 }
 
 install_xserver

@@ -1,0 +1,34 @@
+general {
+    interval = 1
+    colors = true
+    color_good="#FFFFFF"
+    color_degraded="#ffd75f"
+    color_bad="#d75f5f"
+}
+
+order += "disk /"
+order += "disk /home"
+order += "cpu_usage"
+order += "tztime local"
+
+tztime local {
+    format = "  %a %Y-%m-%d %H:%M:%S"
+}
+
+tztime utc {
+    format = " UTC %H:%M"
+    timezone = "Etc/UTC"
+}
+
+
+disk "/home" {
+     format = " ~ %avail"
+}
+
+disk "/" {
+     format = " / %avail"
+}
+
+cpu_usage {
+    format = " %usage"
+}
