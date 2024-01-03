@@ -2,8 +2,8 @@
 
 add_newline = true
 
-format = """$hostname$character"""
-right_format = """$custom$os$directory$git_status$cmd_duration$memory_usage$time"""
+format = """$hostname${custom.character1}${custom.character2}"""
+right_format = """${custom.hn}$directory$cmd_duration"""
 
 [custom.hn]
 command = 'hostname'
@@ -11,7 +11,18 @@ shell = 'sh'
 when = true
 style = 'bold blue'
 format = '[\[$output\]]($style) '
-ignore_timeout = true
+
+[custom.character1]
+shell = 'sh'
+when = 'check-is-tmux-running'
+style = 'bold blue'
+format = '[🝖]($style) '
+
+[custom.character2]
+shell = 'sh'
+when = '! check-is-tmux-running'
+style = 'bold red'
+format = '[🝖]($style) '
 
 [directory]
 truncation_length=1
