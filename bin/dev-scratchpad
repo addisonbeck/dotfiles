@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+tmux new-session -d -s scratchpad -n 🚮
+

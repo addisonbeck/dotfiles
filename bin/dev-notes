@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+tmux new-session -d -s notes -n 📝 "cd ~/notes; nvim"
+

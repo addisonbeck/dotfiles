@@ -1,0 +1,5 @@
+start-htop
+dev-scratchpad
+dev-dotfiles
+dev-notes
+tmux a -t scratchpad

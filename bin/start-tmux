@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+tmux \
+  new-session -d -s home -n 🏚️ -c '~' 'neofetch && tail -f /dev/null' \; \
+  split-window -d -v -c '~' \; \
+  split-window -d -h -c '~' 'htop' \; \
+  split-window -h -t 2 -c '~' \; \
+  set-option -w remain-on-exit on > /dev/null 2>&1
+
+tmux a -t home
