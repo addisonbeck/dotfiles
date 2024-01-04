@@ -22,3 +22,4 @@ install_package polybar
 install_package neofetch
 install-kitty
 install_package chromium
+install-gnome-keyring

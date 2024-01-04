@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_gnome_keyring () {
+  if [[ "$PLATFORM" == "arch" ]]; then
+    install_package gnome-keyring
+    install_package libsecret
+    install_package seahorse
+    echo "auth optional pam_gnome_keyring.so" | sudo tee /etc/pam.d/login
+    echo "session optional pam_gnome_keyring.so auto_start" | sudo tee /etc/pam.d/login
+  fi
+}
+
+install_gnome_keyring
+

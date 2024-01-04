@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+ensure_api_is_running () {
+  tmux has-session -t "bw-identity" 2>/dev/null
+
+  if [ $? != 0 ]; then
+    bw-start-identity
+  fi
+
+  tmux has-session -t "bw-api" 2>/dev/null
+
+  if [ $? != 0 ]; then
+    bw-start-api
+  fi
+}
+
+start_web () {
+  ensure_api_is_running
+  tmux new-session -d -s bw-web -n run 'bw-run-web'
+}
+
+start_web

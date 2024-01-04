@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+tmux new-session -d -s bw-api -n run 'bw-run-api'

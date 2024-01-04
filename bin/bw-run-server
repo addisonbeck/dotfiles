@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source bw-platform
+
+tmux new-session -d -s  'ruby run.rb'

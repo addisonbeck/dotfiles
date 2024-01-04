@@ -53,8 +53,8 @@ setup_env () {
   # Installing the Azurite tools
   pwsh -Command "Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force"
 
-  # Running docker compose
-  docker compose --profile cloud --profile mail up -d
+  bw-run-docker-mssql
+  bw-run-docker-azurite
 
   pwsh setup_azurite.ps1
 
