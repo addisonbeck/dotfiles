@@ -7,6 +7,8 @@ download-env
 source .env
 download-commit-signing-key
 install-tmux
+install-htop
+install-neofetch
 install-gh
 install-fish
 install-starship

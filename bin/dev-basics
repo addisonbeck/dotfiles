@@ -1,5 +1,8 @@
+#!/usr/bin/env bash
+
 start-htop
 dev-scratchpad
 dev-dotfiles
 dev-notes
-tmux a -t scratchpad
+
+tmux switch-client -t dev

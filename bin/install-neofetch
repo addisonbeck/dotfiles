@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_neofetch () {
+  install_package neofetch
+}
+
+install_neofetch
+

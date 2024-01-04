@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_htop () {
+  install_package htop
+}
+
+install_htop
+

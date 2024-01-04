@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ "$(hostname)" == "bw" ]]; then
+  KEY="yk5c"
+fi
+
+if [[ "$(hostname)" == "mac" ]]; then
+  KEY="yknano"
+fi
+
+tmux new-session -d -s dev -n 📡 "ssh dev -i ~/.ssh/$KEY"
+tmux switch-client -t dev
+

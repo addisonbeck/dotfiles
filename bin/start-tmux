@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+tmux kill-server
+
 tmux \
   new-session -d -s home -n 🏚️ -c '~' 'neofetch && tail -f /dev/null' \; \
   split-window -d -v -c '~' \; \
