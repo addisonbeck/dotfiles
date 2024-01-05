@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-source platform
+source bw-package-manager
 
 install_powershell () {
-  if [[ "$PLATFORM" == "arch" ]]; then
+  if command -v pwsh
+  then
+    return 1
+  fi
+
+  if [[ "$PACKAGEMANAGER" == "pacman" ]]; then
     cd ~
     git clone https://aur.archlinux.org/powershell-bin.git
     cd powershell-bin

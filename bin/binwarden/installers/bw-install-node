@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
-source core
+source bw-package-manager
 
 install_node () {
+  if command -v node
+  then
+    return 1
+  fi
+
   PROFILE=/dev/null bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash"
-  echo "omf install nvm" | fish
   export NVM_DIR="$HOME/.nvm" 
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
   nvm install 'lts/*'

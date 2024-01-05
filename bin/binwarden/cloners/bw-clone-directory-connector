@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-source core
-
 install_dependencies () {
   if ! command -v node
   then
-    install-node
+    bw-install-node
   fi
 
   if [ ! -d "$HOME/bitwarden/server" ]; then

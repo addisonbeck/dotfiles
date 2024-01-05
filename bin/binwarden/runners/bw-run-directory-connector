@@ -23,6 +23,11 @@ ensure_web_is_running () {
 }
 
 start_directory_connector () {
+  if ! command -v tmux
+  then
+    bw-install-tmux
+  fi
+
   ensure_api_is_running
   ensure_web_is_running
   tmux new-session -d -s bw-directory-connector -n run 'bw-run-directory-connector'

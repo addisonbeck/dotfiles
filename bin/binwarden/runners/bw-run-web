@@ -15,6 +15,10 @@ ensure_api_is_running () {
 }
 
 start_web () {
+  if ! command -v tmux
+  then
+    bw-install-tmux
+  fi
   ensure_api_is_running
   tmux new-session -d -s bw-web -n run 'bw-run-web'
 }

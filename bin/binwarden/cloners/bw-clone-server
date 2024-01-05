@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
 
-source core
+source bw-secrets-provider
+
+DEVLICENSEBWITEMID="7123e5d3-f837-4a8c-810a-a7ca00fe1fdd"
 
 install_dependencies () {
   if ! command -v docker
   then
-    install-docker
+    bw-install-docker
   fi
   if ! command -v dotnet
   then
-    install-dotnet
+    bw-install-dotnet
   fi
   if ! command -v pwsh
   then
-    install-powershell
+    bw-install-powershell
   fi
 
   if [[ -z "${BW_SESSION}" ]]; then
@@ -40,6 +42,23 @@ configure_git () {
   git config --local core.hooksPath .git-hooks
 }
 
+get_dev_license () {
+  if [ ! -z "${BINWARDEN_SESSION}" ]; then
+    login_to_bw
+  fi
+  bw get attachment dev.cer --itemid $DEVLICENSEBWITEMID --session $BINWARDEN_SESSION
+  bw get attachment dev.pfx --itemid $DEVLICENSEBWITEMID --session $BINWARDEN_SESSION
+  sudo openssl x509 -inform DER -in dev.cer -out dev.crt
+  sudo chmod 644 dev.crt
+}
+
+get_dev_license_password () {
+  if [ ! -z "${BINWARDEN_SESSION}" ]; then
+    login_to_bw
+  fi
+  echo $(bw get password $DEVLICENSEBWITEMID --session $BINWARDEN_SESSION)
+}
+
 setup_env () {
   cd dev
 
@@ -61,13 +80,11 @@ setup_env () {
   # Running migrations scripts
   pwsh migrate.ps1
 
-  bw get attachment dev.cer --itemid 7123e5d3-f837-4a8c-810a-a7ca00fe1fdd --session $BW_SESSION
-  bw get attachment dev.pfx --itemid 7123e5d3-f837-4a8c-810a-a7ca00fe1fdd --session $BW_SESSION
-  sudo openssl x509 -inform DER -in dev.cer -out dev.crt
-  sudo chmod 644 dev.crt
+  get_dev_license
 
   # Adding the pfx license to dotnet's source folder
-  LICENSEPW=$(bw get password 7123e5d3-f837-4a8c-810a-a7ca00fe1fdd --session $BW_SESSION)
+  LICENSEPW=$(get_dev_license_password)
+
   pwsh -Command "using namespace System.Security.Cryptography.X509Certificates; \$store = [X509Store]::new('My', 'CurrentUser', 'ReadWrite'); \$store.Add([X509Certificate2]::new('${PWD}/dev.pfx', '${LICENSEPW}', [X509KeyStorageFlags]::PersistKeySet)); \$store.Dispose()"
 
   bw get attachment secrets-for-env-setup.json --itemid d4195f67-dd43-4465-84d7-ae320013e6ff --session $BW_SESSION
@@ -91,4 +108,4 @@ bw_build_server () {
   setup_env
 }
 
-bw_build_server
+w_build_server

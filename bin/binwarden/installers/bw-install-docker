@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-source platform
+source bw-package-manager
 
 install_docker () {
-  if [[ "$PLATFORM" == "ubuntu"* ]]; then
+  if command -v docker
+  then
+    return 1
+  fi
+
+  if [[ "$PACKAGEMANAGER" == "apt" ]]; then
     sudo addgroup docker
     sudo usermod -aG docker $(whoami)
     sudo apt-get -qq install apt-transport-https ca-certificates curl software-properties-common
@@ -14,7 +19,7 @@ install_docker () {
     sudo apt-get -qq install docker-ce 
   fi
 
-  if [[ "$PLATFORM" == "arch"* ]]; then
+  if [[ "$PACKAGEMANAGER" == "pacman" ]]; then
     sudo groupadd docker
     sudo usermod -aG docker $(whoami)
     install_package docker
