@@ -68,7 +68,7 @@ create_user
 remove_sudo_password_requirement
 set_user_permissions
 setup_pacman
-install_self
+# install_self
 disable_root_login
 login
 
