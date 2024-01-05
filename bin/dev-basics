@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-start-htop
 dev-scratchpad
 dev-dotfiles
 dev-notes
 
-tmux switch-client -t dev || (start-tmux "tmux switch-client -t dev")
+tmux switch-client -t home || (start-tmux "tmux switch-client -t scratch")
