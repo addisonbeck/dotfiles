@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_bitwarden () {
+  if ! command -v unzip
+  then
+    install_package unzip
+  fi
+
+  if [[ "$PLATFORM" == "ubuntu"* || "$PLATFORM" == "raspbian"* || "$PLATFORM" == "arch"* ]]; then
+    install_package unzip
+    curl -s --location "https://vault.bitwarden.com/download/?app=cli&platform=linux" --output bw.zip
+    unzip bw.zip -d . 
+    chmod +x bw
+    sudo mv bw /usr/local/bin
+    rm bw.zip
+  fi
+
+  if [[ "$PLATFORM" == "mac"* ]]; then
+    curl -s --location "https://vault.bitwarden.com/download/?app=cli&platform=macos" --output bw.zip
+    unzip bw.zip -d . 
+    chmod +x bw
+    sudo mkdir -p /usr/local/bin
+    sudo mv bw /usr/local/bin
+    rm bw.zip
+  fi
+}
+
+install_bitwarden
+

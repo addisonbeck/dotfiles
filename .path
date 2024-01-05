@@ -1,0 +1,15 @@
+~/bin/$(hostname):
+~/bin/$(uname -m):
+~/bin:
+~/bin/binwarden:
+~/bin/cloners:
+~/bin/installers:
+~/bin/one-liners:
+~/bin/os-management:
+~/bin/secrets-management:
+~/bin/tmux-helpers:
+~/.nvm:
+/usr/local/go/bin:
+~/.dotnet/tools:
+/opt/local/bin:
+$PATH

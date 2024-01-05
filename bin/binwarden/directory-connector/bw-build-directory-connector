@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source bw-platform
+source core
 
 install_dependencies () {
   if ! command -v node

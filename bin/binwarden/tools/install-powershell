@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_powershell () {
+  if [[ "$PLATFORM" == "arch" ]]; then
+    cd ~
+    git clone https://aur.archlinux.org/powershell-bin.git
+    cd powershell-bin
+    makepkg -sirc
+  fi
+}
+
+install_powershell

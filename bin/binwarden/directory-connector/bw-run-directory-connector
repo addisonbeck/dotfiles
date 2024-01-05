@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source bw-platform
+source core
 
 ensure_project_ready () {
   if [ ! -d "$HOME/bitwarden/directory-connector" ]; then

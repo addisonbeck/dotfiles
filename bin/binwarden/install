@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+clone_self () {
+  cd $HOME 
+  mkdir bin
+  cd bin
+  git init
+  git remote add origin https://github.com/addisonbeck/binwarden.git
+  git fetch
+  git checkout -f main 
+  git remote set-url origin git@github.com:addisonbeck/binwarden.git
+}
+
+create_symlinks () {
+  ln -s $HOME/bin/binwarden/tools tools-link
+  ln -s $HOME/bin/binwarden/server server-link
+  ln -s $HOME/bin/binwarden/clients clients-link
+  ln -s $HOME/bin/binwarden/directory-connector directory-connector-link
+}
+
+clone_self
+
