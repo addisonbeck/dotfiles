@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-tmux kill-server
-
 tmux \
   new-session -d -s home -n 🏚️ -c '~' 'neofetch && tail -f /dev/null' \; \
   split-window -d -v -c '~' \; \
   split-window -d -h -c '~' 'htop' \; \
   split-window -h -t 2 -c '~' \; \
+  send-keys -t 3 "${1}" \; \
   set-option -w remain-on-exit on > /dev/null 2>&1
 
 tmux a -t home

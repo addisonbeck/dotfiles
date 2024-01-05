@@ -8,6 +8,5 @@ if [[ "$(hostname)" == "mac" ]]; then
   KEY="yknano"
 fi
 
-tmux new-session -d -s dev -n 📡 "ssh dev -i ~/.ssh/$KEY"
-tmux switch-client -t dev
-
+tmux new-session -d -s ssh-dev -n 📡 "ssh dev -i ~/.ssh/$KEY"
+tmux switch-client -t ssh-dev || (start-tmux "tmux switch-client -t ssh-dev")

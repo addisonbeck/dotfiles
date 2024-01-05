@@ -5,4 +5,4 @@ dev-scratchpad
 dev-dotfiles
 dev-notes
 
-tmux switch-client -t dev
+tmux switch-client -t dev || (start-tmux "tmux switch-client -t dev")
