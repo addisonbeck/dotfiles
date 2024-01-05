@@ -4,4 +4,4 @@ dev-scratchpad
 dev-dotfiles
 dev-notes
 
-tmux switch-client -t home || (start-tmux "tmux switch-client -t scratch")
+tmux switch-client -t scratchpad || (start-tmux "tmux switch-client -t scratch")
