@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ "$(hostname)" == "bw" ]]; then
-  KEY="yk5c"
+  KEY="yknano"
 fi
 
 if [[ "$(hostname)" == "mac" ]]; then
