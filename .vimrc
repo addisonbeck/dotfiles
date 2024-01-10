@@ -3,8 +3,8 @@
 
 set noconfirm
 set noswapfile
+set nowrap
 " set termguicolors
-
 set clipboard=unnamed
 set cmdheight=1
 set hidden
