@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_lazygit () {
+  install_package lazygit
+}
+
+install_lazygit
+

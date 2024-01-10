@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
 
+if ! command -v tmux
+then
+  install-tmux
+fi
+
+if ! command -v htop
+then
+  install-htop
+fi
+
 tmux new-session -d -s htop -n 👾 "htop $@"
 

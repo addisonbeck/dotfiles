@@ -2,6 +2,8 @@
 
 dev-scratchpad
 dev-dotfiles
+bw-dev-binwarden
 dev-notes
+dev-lazygit
 
-tmux switch-client -t scratchpad || (start-tmux "tmux switch-client -t scratch")
+tmux switch-client -t scratchpad || (start-tmux "tmux switch-client -t scratchpad")

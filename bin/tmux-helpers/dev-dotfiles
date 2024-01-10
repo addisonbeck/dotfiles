@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
 
+if ! command -v tmux
+then
+  install-tmux
+fi
+
+if ! command -v nvim
+then
+  install-nvim
+fi
+
 tmux new-session -d -s dotfiles -n 🧿 "cd ~ && nvim"
 

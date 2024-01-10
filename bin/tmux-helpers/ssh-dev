@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if ! command -v tmux
+then
+  install-tmux
+fi
+
 if [[ "$(hostname)" == "bw" ]]; then
   KEY="yknano"
 fi

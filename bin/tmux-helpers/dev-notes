@@ -1,4 +1,17 @@
 #!/usr/bin/env bash
 
-tmux new-session -d -s notes -n 📝 "cd ~/notes; nvim"
+if ! command -v tmux
+then
+  install-tmux
+fi
 
+if ! command -v nvim
+then
+  install-nvim
+fi
+
+if [ ! -d "$HOME/notes" ]; then
+  clone_notes
+fi
+
+tmux new-session -d -s notes -n 📝 "cd ~/notes; nvim"

@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+if ! command -v tmux
+then
+  install-tmux
+fi
+
+if ! command -v neofetch
+then
+  install-neofetch
+fi
+
+if ! command -v htop
+then
+  install-htop
+fi
+
 tmux \
   new-session -d -s home -n 🏚️ -c '~' 'neofetch && tail -f /dev/null' \; \
   split-window -d -v -c '~' \; \

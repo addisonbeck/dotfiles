@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if ! command -v tmux
+then
+  install-tmux
+fi
+
 if [ "$(tmux display-message -p -F "#{session_name}")" = "scratchpad" ];then
     tmux detach-client
 else
