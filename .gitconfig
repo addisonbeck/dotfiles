@@ -48,3 +48,5 @@
 	format = ssh
 [commit]
 	gpgsign = true
+[advice]
+	addIgnoredFile = false
