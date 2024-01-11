@@ -10,4 +10,10 @@ then
   install-tmux
 fi
 
+tmux has-session -t "lazygit" 2>/dev/null
+
+if [ $? != 1 ]; then
+  tmux kill-session -t lazygit
+fi
+
 tmux new-session -d -s lazygit -n 🛌 "lazygit"
