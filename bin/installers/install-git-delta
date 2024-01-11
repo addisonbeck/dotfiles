@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+source platform
+
+install_delta () {
+  install_package git-delta
+}
+
+if ! command -v delta
+then
+  install_delta
+fi
+
+

@@ -7,4 +7,4 @@ install_lazygit () {
 }
 
 install_lazygit
-
+install-git-delta
