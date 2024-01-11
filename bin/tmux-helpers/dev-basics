@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 
 dev-scratchpad
-dev-dotfiles
-dev-notes
-dev-lazygit
-dev-gh-dash
-bw-dev-binwarden
+
+# These are my client machines
+if [[ "$(hostname)" == "bw" || "$(hostname)" == "mac" ]]; then
+  ssh-dev
+else
+  dev-dotfiles
+  dev-notes
+  dev-lazygit
+  dev-gh-dash
+  bw-dev-binwarden
+fi
+
+start-tmux

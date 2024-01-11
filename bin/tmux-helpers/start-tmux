@@ -22,7 +22,10 @@ function attach_to_session () {
 }
 
 ensure_command_installed tmux
-ensure_command_installed neofetch
-ensure_command_installed htop
-start_session
-attach_to_session
+tmux has-session -t "$(full_session_name)" > /dev/null 2>&1
+if [ $? != 0 ]; then
+  ensure_command_installed neofetch
+  ensure_command_installed htop
+  start_session
+  attach_to_session
+fi

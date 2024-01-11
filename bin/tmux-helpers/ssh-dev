@@ -18,4 +18,3 @@ WINDOW_NAME="connect"
 ensure_command_installed tmux
 kill_session_if_exists
 start_session
-attach_to_session
