@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-if ! command -v tmux
-then
-  install-tmux
-fi
+source dev-core
 
-if ! command -v htop
-then
-  install-htop
-fi
+SESSION_PREFIX="💾"
+SESSION_NAME="htop"
+STARTER_COMMAND="htop"
+WINDOW_NAME="monitor"
 
-tmux new-session -d -s htop -n 👾 "htop $@"
-
+ensure_command_installed tmux
+ensure_command_installed htop
+kill_session_if_exists
+start_session

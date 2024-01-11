@@ -1,19 +1,13 @@
 #!/usr/bin/env bash
 
-if ! command -v tmux
-then
-  install-tmux
-fi
+source dev-core
 
-if ! command -v lazygit
-then
-  install-tmux
-fi
+SESSION_PREFIX="🛌"
+SESSION_NAME="lazygit"
+STARTER_COMMAND="lazygit"
+WINDOW_NAME="."
 
-tmux has-session -t "lazygit" 2>/dev/null
-
-if [ $? != 1 ]; then
-  tmux kill-session -t lazygit
-fi
-
-tmux new-session -d -s lazygit -n 🛌 "lazygit"
+ensure_command_installed tmux
+ensure_command_installed lazygit
+kill_session_if_exists
+start_session

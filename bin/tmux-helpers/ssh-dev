@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-if ! command -v tmux
-then
-  install-tmux
-fi
+source dev-core
 
 if [[ "$(hostname)" == "bw" ]]; then
   KEY="yknano"
@@ -13,5 +10,12 @@ if [[ "$(hostname)" == "mac" ]]; then
   KEY="yknano"
 fi
 
-tmux new-session -d -s ssh-dev -n 📡 "ssh dev -i ~/.ssh/$KEY"
-tmux switch-client -t ssh-dev || (start-tmux "tmux switch-client -t ssh-dev")
+SESSION_PREFIX="📡"
+SESSION_NAME="ssh → dev"
+STARTER_COMMAND="ssh dev -i ~/.ssh/$KEY"
+WINDOW_NAME="connect"
+
+ensure_command_installed tmux
+kill_session_if_exists
+start_session
+attach_to_session

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-if ! command -v tmux > /dev/null 2>&1
-then
-  install-tmux
-fi
+source dev-core
 
-if [ "$(tmux display-message -p -F "#{session_name}")" = "scratchpad" ];then
+SESSION_PREFIX="🚮"
+SESSION_NAME="scratchpad"
+
+if [ "$(tmux display-message -p -F "#{session_name}")" = "$(full_session_name)" ];then
     tmux detach-client
 else
-    tmux popup -d '#{pane_current_path}' -xC -yC -w80% -h75% -E "tmux attach -t scratchpad || tmux new -s scratchpad"
+  tmux popup -d '#{pane_current_path}' -xC -yC -w80% -h75% -E "tmux attach -t \"$(full_session_name)\" || tmux new -s \"$(full_session_name)\""
 fi

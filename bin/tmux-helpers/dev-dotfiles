@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-if ! command -v tmux
-then
-  install-tmux
-fi
+source dev-core
 
-if ! command -v nvim
-then
-  install-nvim
-fi
+SESSION_PREFIX="🧿"
+SESSION_NAME="dotfiles"
+STARTER_COMMAND="cd $HOME; nvim"
+WINDOW_NAME="."
 
-tmux new-session -d -s dotfiles -n 🧿 "cd ~ && nvim"
-
+ensure_command_installed tmux
+ensure_command_installed nvim
+start_session

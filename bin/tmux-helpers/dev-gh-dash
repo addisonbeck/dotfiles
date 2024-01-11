@@ -2,11 +2,12 @@
 
 source dev-core
 
-SESSION_PREFIX="🚮"
-SESSION_NAME="scratchpad"
-STARTER_COMMAND="fish"
+SESSION_PREFIX="⚡️"
+SESSION_NAME="gh-dash"
+STARTER_COMMAND="gh dash"
 WINDOW_NAME="run"
 
 ensure_command_installed tmux
+ensure_command_installed gh
 kill_session_if_exists
 start_session

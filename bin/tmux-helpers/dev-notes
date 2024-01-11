@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
 
-if ! command -v tmux
-then
-  install-tmux
-fi
+source dev-core
 
-if ! command -v nvim
-then
-  install-nvim
-fi
+SESSION_PREFIX="📝"
+SESSION_NAME="notes"
+STARTER_COMMAND="cd ${HOME}/notes; nvim"
+WINDOW_NAME="write"
 
-if [ ! -d "$HOME/notes" ]; then
-  clone_notes
-fi
-
-tmux new-session -d -s notes -n 📝 "cd ~/notes; nvim"
+ensure_command_installed tmux
+ensure_command_installed nvim
+ensure_repo_cloned notes
+start_session
