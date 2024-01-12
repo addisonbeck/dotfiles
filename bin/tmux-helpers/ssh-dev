@@ -2,17 +2,9 @@
 
 source dev-core
 
-if [[ "$(hostname)" == "bw" ]]; then
-  KEY="yknano"
-fi
-
-if [[ "$(hostname)" == "mac" ]]; then
-  KEY="yknano"
-fi
-
 SESSION_PREFIX="📡"
 SESSION_NAME="ssh → dev"
-STARTER_COMMAND="ssh dev -i ~/.ssh/$KEY"
+STARTER_COMMAND="ssh dev -i ~/.ssh/$(hostname)"
 WINDOW_NAME="connect"
 
 ensure_command_installed tmux
