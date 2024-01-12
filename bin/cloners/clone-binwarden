@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+curl -s https://raw.githubusercontent.com/addisonbeck/binwarden/main/cloners/bw-clone-binwarden \
+--output bw-clone-binwarden.sh && \
+bash bw-clone-binwarden.sh
