@@ -19,7 +19,7 @@ install_neovim () {
     rm -rf ~/nvim-linux64
   fi
 
-  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
+  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" || "PACKAGEMANAGER" == "apk" ]]; then
     install_package ripgrep
     install_package fd
     install_package gcc
