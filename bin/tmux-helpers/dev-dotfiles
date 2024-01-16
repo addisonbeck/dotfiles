@@ -5,8 +5,13 @@ source dev-core
 SESSION_PREFIX="🧿"
 SESSION_NAME="dotfiles"
 STARTER_COMMAND="cd $HOME; nvim"
-WINDOW_NAME="."
+WINDOW_NAME="dev"
 
 ensure_command_installed tmux
 ensure_command_installed nvim
-start_session
+start_window
+
+ensure_command_installed lazygit
+WINDOW_NAME="git"
+STARTER_COMMAND="cd $HOME; lazygit"
+start_window

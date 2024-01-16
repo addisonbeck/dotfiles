@@ -23,11 +23,20 @@ function kill_session_if_exists () {
 function start_session () {
   tmux has-session -t "$(full_session_name)" > /dev/null 2>&1
   if [ $? != 0 ]; then
-    log_info "Starting session \"$(full_session_name)\""
+    log_info "Starting session \"$(full_session_name)\" with window \"${WINDOW_NAME}\""
     tmux new-session -d -s "$(full_session_name)" -n "${WINDOW_NAME}" "${STARTER_COMMAND}" > /dev/null 2>&1
+    return 0
   else
-    log_info "Session \"$(full_session_name)\" is already running, attaching instead."
-    attach_to_session
+    log_info "Session \"$(full_session_name)\" is already running."
+    return 1
+  fi
+}
+
+function start_window () {
+  start_session
+  if [ $? != 0 ]; then
+    log_info "Starting window \"${WINDOW_NAME}\" in session \"$(full_session_name)\""
+    tmux new-window -n "${WINDOW_NAME}" -t "$(full_session_name):" "${STARTER_COMMAND}"
   fi
 }
 

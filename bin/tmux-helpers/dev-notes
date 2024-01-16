@@ -2,12 +2,18 @@
 
 source dev-core
 
+PROJECT_PATH="${HOME}/notes"
 SESSION_PREFIX="📝"
 SESSION_NAME="notes"
-STARTER_COMMAND="cd ${HOME}/notes; nvim"
+STARTER_COMMAND="cd ${PROJECT_PATH}; nvim"
 WINDOW_NAME="write"
 
 ensure_command_installed tmux
 ensure_command_installed nvim
 ensure_repo_cloned notes
-start_session
+start_window
+
+ensure_command_installed lazygit
+WINDOW_NAME="git"
+STARTER_COMMAND="cd ${PROJECT_PATH}; lazygit"
+start_window
