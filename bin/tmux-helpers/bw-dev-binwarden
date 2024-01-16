@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+source bw-dev-core
+
+SESSION_PREFIX="✍️"
+SESSION_NAME="binwarden"
+STARTER_COMMAND="cd $HOME/bin/binwarden; nvim"
+WINDOW_NAME="dev"
+
+ensure_command_installed nvim
+start_window
+
+#!/usr/bin/env bash
+
+source bw-dev-core
+
+SESSION_PREFIX="✍️"
+SESSION_NAME="binwarden"
+STARTER_COMMAND="cd $HOME/bin/binwarden; nvim"
+WINDOW_NAME="dev"
+
+ensure_command_installed nvim
+start_window

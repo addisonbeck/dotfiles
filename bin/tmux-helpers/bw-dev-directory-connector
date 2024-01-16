@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/binwarden/bw-dev-clients
+
+STARTER_COMMAND="cd $HOME/bin/binwarden; lazygit"
+WINDOW_NAME="git"
+
+ensure_command_installed lazygit
+start_window
