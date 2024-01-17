@@ -7,7 +7,7 @@ d dotfiles
 if [[ "$(hostname)" == "bw" || "$(hostname)" == "mac" ]]; then
   d ssh-dev
 else
-  # d binwarden
+  d binwarden
   d gh-dash
 fi
 
