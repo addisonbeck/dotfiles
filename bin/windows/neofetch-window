@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/windows/windows-core ${1}
+
+STARTER_COMMAND="cd $PROJECT_PATH; neofetch && tail -f /dev/null"
+WINDOW_NAME="neofetch"
+
+ensure_command_installed neofetch
+start_window

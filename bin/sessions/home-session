@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/sessions/sessions-core
+
+PROJECT_PATH="${HOME}"
+SESSION_PREFIX="💾"
+SESSION_NAME="Home"

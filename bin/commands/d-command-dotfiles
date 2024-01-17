@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+PROJECT=$1
+$HOME/bin/windows/editor-window "$PROJECT"
+$HOME/bin/windows/git-window "$PROJECT"

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/windows/windows-core ${1}
+
+STARTER_COMMAND="cd $PROJECT_PATH; $SHELL -l"
+WINDOW_NAME="scratchpad"
+
+start_window

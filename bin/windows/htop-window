@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/windows/windows-core ${1}
+
+STARTER_COMMAND="cd $PROJECT_PATH; htop"
+WINDOW_NAME="htop"
+
+ensure_command_installed htop
+start_window
+

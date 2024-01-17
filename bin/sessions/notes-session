@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/sessions/sessions-core
+
+PROJECT_PATH="${HOME}/notes"
+SESSION_PREFIX="📝"
+SESSION_NAME="Notes"
+
+ensure_repo_cloned notes
+
