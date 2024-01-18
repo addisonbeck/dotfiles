@@ -8,7 +8,7 @@ if [[ "$(hostname)" == "bw" || "$(hostname)" == "mac" ]]; then
   d ssh-dev
 else
   d binwarden
-  d gh-dash
+  d "gh-dash"
 fi
 
 tmux a -t @0
