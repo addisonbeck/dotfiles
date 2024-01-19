@@ -2,7 +2,7 @@
 
 source $HOME/bin/windows/windows-core ${1}
 
-WINDOW_NAME="git"
+WINDOW_NAME="Git"
 STARTER_COMMAND="cd $PROJECT_PATH; lazygit"
 
 ensure_command_installed lazygit

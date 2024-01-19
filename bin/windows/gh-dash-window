@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-source $HOME/bin/windows/windows-core ${1}
-
-WINDOW_NAME="gh-dash"
-STARTER_COMMAND="cd $PROJECT_PATH; gh dash"
-
-ensure_command_installed gh
-start_window

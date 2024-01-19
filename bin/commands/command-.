@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+while [[ $# -gt 0 ]] 
+do
+  case $1 in
+    e|edit )
+      EDIT="true"
+      shift
+      ;;
+
+    g|git )
+      GIT="true"
+      shift
+      ;;
+
+    *)
+      echo "Option ${1} is not supported by this command"
+      shift
+      ;;
+  esac
+done
+
+if [ $EDIT ] 
+then
+  $HOME/bin/windows/editor-window dotfiles
+fi
+
+if [ $GIT ] 
+then
+  $HOME/bin/windows/git-window dotfiles
+fi

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+$HOME/bin/windows/run-window neofetch
+$HOME/bin/windows/run-window htop
+$HOME/bin/windows/run-window scratchpad

@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-source $HOME/bin/sessions/sessions-core
+source $HOME/bin/sessions/core-session
+
+SUPPORTS_EDITING=true
+SUPPORTS_GIT=true
+SUPPORTS_TERMINAL=true
 
 PROJECT_PATH="${HOME}"
 SESSION_PREFIX="🧿"
 SESSION_NAME="Dotfiles"
+

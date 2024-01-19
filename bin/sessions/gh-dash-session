@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
-source $HOME/bin/sessions/sessions-core
+source $HOME/bin/sessions/core-session
+
+SUPPORTS_RUNNING=true
+SUPPORTS_TERMINAL=true
 
 PROJECT_PATH="${HOME}"
 SESSION_PREFIX="⚡️"
 SESSION_NAME="GitHub"
+
+RUN_WINDOW_NAME="Dash"
+RUN_COMMAND="gh dash"
+
+ensure_command_installed gh
+

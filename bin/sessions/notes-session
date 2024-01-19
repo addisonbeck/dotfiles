@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 
-source $HOME/bin/sessions/sessions-core
+source $HOME/bin/sessions/core-session
 
-PROJECT_PATH="${HOME}/notes"
+SESSION_NAME="Notes"
+
+SUPPORTS_EDITING=true
+SUPPORTS_GIT=true
+SUPPORTS_TERMINAL=true
+
+PROJECT_PATH="$HOME/notes"
 SESSION_PREFIX="📝"
 SESSION_NAME="Notes"
+
+EDITOR_WINDOW_NAME="Write"
 
 ensure_repo_cloned notes
 

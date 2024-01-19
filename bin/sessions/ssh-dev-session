@@ -5,3 +5,5 @@ source $HOME/bin/sessions/sessions-core
 PROJECT_PATH="${HOME}"
 SESSION_PREFIX="📡"
 SESSION_NAME="ssh → dev"
+HOSTNAME="dev"
+IDENTITY="$HOME/.ssh/$(hostname)"

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/sessions/home-session
+
+RUN_WINDOW_NAME="home"
+RUN_COMMAND="neofetch && tail -f /dev/null"
+
+ensure_command_installed neofetch

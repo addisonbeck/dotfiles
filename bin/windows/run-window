@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/windows/windows-core ${1}
+
+mkdir -p $HOME/logs
+if [ $SUPPORTS_RUNNING == false ]
+then
+  log_error "$PROJECT_NAME does not support running."
+  exit 1
+fi
+
+if [ -z "$RUN_WINDOW_NAME" ]
+then
+  WINDOW_NAME="Run"
+else
+  WINDOW_NAME="${RUN_WINDOW_NAME}"
+fi
+
+STARTER_COMMAND="cd ${PROJECT_PATH}; ${RUN_COMMAND}"
+start_window

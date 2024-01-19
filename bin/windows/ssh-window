@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/windows/windows-core ${1}
+
+STARTER_COMMAND="cd $HOME; ssh ${HOSTNAME} -i ${IDENTITY}"
+WINDOW_NAME="Connect"
+start_window

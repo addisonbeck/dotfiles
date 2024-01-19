@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+source $HOME/bin/sessions/home-session
+
+RUN_WINDOW_NAME="scratchpad"
+RUN_COMMAND="$SHELL -l"

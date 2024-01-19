@@ -1,4 +1,38 @@
 #!/usr/bin/env bash
 
-PROJECT=$1
-$HOME/bin/commands/d-command-$PROJECT "$PROJECT"
+function process_command () {
+  # echo "COMMAND: ${COMMAND}"
+  # echo "ARGS: ${ARGS[@]}"
+
+  if [ -z "$COMMAND" ]
+  then
+    log_error "No command specified"
+    COMMAND="help"
+  fi
+
+  $HOME/bin/commands/command${COMMAND} $(echo ${ARGS[@]})
+}
+
+COMMAND=""
+ARGS=()
+while [[ $# -gt 0 ]] 
+do
+  case $1 in
+    -? )
+      ARGS+=("${1:1:1}")
+      shift
+      ;;
+
+    --* )
+      ARGS+=("${1:2}")
+      shift
+      ;;
+
+    *)
+      COMMAND="${COMMAND}-${1}"
+      shift
+      ;;
+  esac
+done
+
+process_command

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function usage () {
+    cat <<__EOF__
+🪄 D - A development automation tool 💫
+
+  usage: d [OPTIONS] COMMAND
+__EOF__
+exit 0
+}
+
+usage

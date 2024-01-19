@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-d home
-d notes
-d dotfiles
+d h
+d n -e -g
+d . -e -g
 
 if [[ "$(hostname)" == "bw" || "$(hostname)" == "mac" ]]; then
-  d ssh-dev
+  d ssh -d
 else
-  d binwarden
-  d "gh-dash"
+  b -e -g binwarden
+  d gh
 fi
 
 tmux a -t @0
