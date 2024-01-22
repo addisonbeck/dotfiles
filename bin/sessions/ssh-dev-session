@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source $HOME/bin/sessions/sessions-core
+source $HOME/bin/sessions/core-session
 
 PROJECT_PATH="${HOME}"
 SESSION_PREFIX="📡"

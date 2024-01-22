@@ -15,7 +15,7 @@ do
   esac
 done
 
-if [ $DEV ] 
+if [ -n "$DEV" ] 
 then
   $HOME/bin/windows/ssh-window ssh-dev
 fi
