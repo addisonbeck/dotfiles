@@ -54,5 +54,5 @@ To build a user and install from root on a fresh install of ish shell:
 ```bash
 wget https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/provisioners/provision-ish-user \
 --output-document main.sh && \
-bash main.sh
+ash main.sh
 ```
