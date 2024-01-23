@@ -15,6 +15,10 @@ if command -v apk
 then
    PACKAGEMANAGER='apk'
 fi
+if command -v dnf
+then
+   PACKAGEMANAGER='dnf'
+fi
 
 install_package () {
   if [[ "$PACKAGEMANAGER" == "apt" ]]; then
@@ -27,7 +31,10 @@ install_package () {
     sudo pacman -Syu --noconfirm $1
   fi
   if [[ "$PACKAGEMANAGER" == "apk" ]]; then
-    apk add -u $1
+    sudo apk add -u $1
+  fi
+  if [[ "$PACKAGEMANAGER" == "dnf" ]]; then
+    sudo dnf install -y $1
   fi
 }
 
@@ -44,13 +51,13 @@ remove_package () {
   if [[ "$PACKAGEMANAGER" == "apk" ]]; then
     apk del $1
   fi
+  if [[ "$PACKAGEMANAGER" == "dnf" ]]; then
+    sudo dnf remove -y $1
+  fi
 }
 
 update_packages () {
   if [[ "$PACKAGEMANAGER" == "apt" ]]; then
-    sudo apt-get -qq -o "DPkg::Lock::Timeout=180" update > /dev/null
-  fi
-  if [[ "$PACKAGEMANAGER" == "raspbian" ]]; then
     sudo apt-get -qq -o "DPkg::Lock::Timeout=180" update > /dev/null
   fi
   if [[ "$PACKAGEMANAGER" == "brew" ]]; then
@@ -60,16 +67,16 @@ update_packages () {
     sudo pacman -Syu
     pacman -Rns $(pacman -Qdtq)	
   fi
-  if [["$PACKAGEMANAGER" == "apk"]]; then
+  if [[ "$PACKAGEMANAGER" == "apk" ]]; then
     apk update
+  fi
+  if [[ "$PACKAGEMANAGER" == "dnf" ]]; then
+    sudo dnf upgrade -y $1
   fi
 }
 
 upgrade_packages () {
   if [[ "$PACKAGEMANAGER" == "apt" ]]; then
-    sudo -E apt-get -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" -o "DPkg::Lock::Timeout=180" upgrade > /dev/null
-  fi
-  if [[ "$PACKAGEMANAGER" == "raspbian" ]]; then
     sudo -E apt-get -qq -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" -o "DPkg::Lock::Timeout=180" upgrade > /dev/null
   fi
   if [[ "$PACKAGEMANAGER" == "brew" ]]; then
@@ -79,7 +86,10 @@ upgrade_packages () {
     sudo pacman -Syu
     pacman -Rns $(pacman -Qdtq)	
   fi
-  if [["$PACKAGEMANAGER" == "apk"]]; then
+  if [[ "$PACKAGEMANAGER" == "apk" ]]; then
     apk upgrade
+  fi
+  if [[ "$PACKAGEMANAGER" == "dnf" ]]; then
+    sudo dnf upgrade -y $1
   fi
 }

@@ -3,11 +3,25 @@
 source $DOTFILES_EX_DIR/installers/installers-core
 
 install_node () {
-  PROFILE=/dev/null bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash"
-  echo "omf install nvm" | fish
-  export NVM_DIR="$HOME/.nvm" 
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  nvm install 'lts/*'
+  if [[ "$PACKAGEMANAGER" == "apk" ]]; then
+    apk add -U curl bash ca-certificates openssl ncurses coreutils python3 make gcc g++ libgcc linux-headers grep util-linux binutils findutils
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+    echo "omf install nvm" | fish
+    export NVM_DIR="$HOME/.nvm" 
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    nvm install -s 'lts/*'
+  else
+    PROFILE=/dev/null bash -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash"
+
+    echo "omf install nvm" | fish
+    export NVM_DIR="$HOME/.nvm" 
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    nvm install 'lts/*'
+  fi
+
 }
 
 install_node

@@ -21,6 +21,11 @@ function install_essentials () {
   apk add sudo
   apk add openssh
   apk add git
+  apk add python3
+  apk add gcompat
+  apk add gcc
+  apk add make
+  apk add libc-dev
 }
 
 
