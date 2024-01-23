@@ -8,7 +8,7 @@ install_bitwarden () {
     install_package unzip
   fi
 
-  if [[ "$PACKAGEMANAGER" == "apt" || "$PACAKGEMANAGER" == "pacman" ]]; then
+  if [[ "$PACKAGEMANAGER" == "apt" || "$PACAKGEMANAGER" == "pacman" || "$PACKAGEMANAGE" == "apk" ]]; then
     install_package unzip
     curl -s --location "https://vault.bitwarden.com/download/?app=cli&platform=linux" --output bw.zip
     unzip bw.zip -d . 
