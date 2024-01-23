@@ -34,18 +34,25 @@ curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/os-manag
 bash main.sh
 ```
 
-To build a user and install from root on a fresh machine on arch:
-
-```bash
-curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/os-management/provision-arch \
---output main.sh && \
-bash main.sh
-```
-
 To install on an existing machine:
 
 ```bash
 curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/cloners/clone-self \
 --output main.sh && \
+bash main.sh
+```
+
+To build a user and install from root on a fresh machine on arch:
+```bash
+curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/provisioners/provision-arch-user \
+--output main.sh && \
+bash main.sh
+```
+
+To build a user and install from root on a fresh install of ish shell:
+
+```bash
+wget https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/provisioners/provision-ish-user \
+--output-document main.sh && \
 bash main.sh
 ```
