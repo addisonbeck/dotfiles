@@ -11,7 +11,7 @@ function configure_alpine_repos () {
   apk upgrade && apk fix
 }
 
-fucntion set_timezone () {
+function set_timezone () {
   timedatectl set-timezone America/Chicago
   hwclock -w
 }
