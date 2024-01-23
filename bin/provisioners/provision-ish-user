@@ -1,50 +1,56 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ash
 
 OSUSERNAME=me
 
 # Point to alpine's repos for packages
 
-configure_alpine_repos () {
+function configure_alpine_repos () {
   rm /ish -rf
   echo https://dl-cdn.alpinelinux.org/alpine/v3.14/main > /etc/apk/repositories
   echo https://dl-cdn.alpinelinux.org/alpine/v3.14/community >> /etc/apk/repositories
   apk upgrade && apk fix
 }
 
-set_timezone () {
+fucntion set_timezone () {
   timedatectl set-timezone America/Chicago
   hwclock -w
 }
 
-set_hostname () {
+function set_hostname () {
   echo iphone > /etc/hostname
 }
 
-setup_ssh () {
-  d i openssh
+function install_essentials () {
+  apk add bash
+  apk add curl
+}
+
+function setup_ssh () {
+  apk add openssh
   ssh-keygen -A
   /usr/sbin/sshd
   sudo sed -i '/^'"PermitRootLogin"'/d' /etc/ssh/sshd_config
   sudo echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 }
 
-build_user_directory () {
+function build_user_directory () {
   mkdir -p /home/$OSUSERNAME/.ssh
   mkdir -p /home/$OSUSERNAME/.cache
 }
 
-install_self () {
+function install_self () {
   cd /home/$OSUSERNAME
   su -s /bin/bash -c "git init && git remote add origin https://github.com/addisonbeck/dotfiles.git && git fetch && git checkout -f main && git remote set-url origin git@github.com:addisonbeck/dotfiles.git" -l $OSUSERNAME
 }
 
-login () {
+function login () {
   su -l $OSUSERNAME
 }
 
 configure_alpine_repos
 set_timezone
 set_hostname
+install_essentials
 setup_ssh
 build_user_directory
 install_self
