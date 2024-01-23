@@ -10,10 +10,6 @@ OSUSERNAME=me
 #   apk upgrade && apk fix
 # }
 
-function set_timezone () {
-  timedatectl set-timezone America/Chicago
-  hwclock -w
-}
 
 function set_hostname () {
   echo iphone > /etc/hostname
@@ -22,10 +18,11 @@ function set_hostname () {
 function install_essentials () {
   apk add bash
   apk add curl
+  apk add sudo
+  apk add openssh
 }
 
 function setup_ssh () {
-  apk add openssh
   ssh-keygen -A
   /usr/sbin/sshd
   sudo sed -i '/^'"PermitRootLogin"'/d' /etc/ssh/sshd_config
@@ -47,7 +44,6 @@ function login () {
 }
 
 # configure_alpine_repos
-set_timezone
 set_hostname
 install_essentials
 setup_ssh
