@@ -38,6 +38,7 @@ function build_user_directory () {
 
 function create_user () {
   adduser -D $OSUSERNAME
+  passwd -d $OSUSERNAME
 }
 
 function remove_sudo_password_requirement () {
