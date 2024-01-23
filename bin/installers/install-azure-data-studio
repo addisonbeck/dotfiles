@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_azure_data_studio () {
-  if [[ "$PLATFORM" == "arch" ]]; then
+  if [[ "$PACKAGEMANAGER" == "pacman" ]]; then
     cd ~
     git clone https://aur.archlinux.org/azuredatastudio-bin.git
     cd azuredatastudio-bin

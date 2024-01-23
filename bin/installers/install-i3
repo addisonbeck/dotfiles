@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_i3 () {
   install_package i3-wm
   install_package i3status
-
 }
 
 install_i3

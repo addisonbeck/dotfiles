@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_xserver () {
   install_package xorg-server

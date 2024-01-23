@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_weechat () {
-  if [[ "$PLATFORM" == "ubuntu" ]]; then
+  if [[ "$PACKAGEMANAGER" == "apt" ]]; then
     install_package "ca-certificates dirmngr gpg-agent apt-transport-https"
     sudo mkdir /root/.gnupg
     sudo chmod 700 /root/.gnupg
@@ -21,17 +21,15 @@ install_weechat () {
     update_packages
     install_package "weechat-curses weechat-headless weechat-plugins weechat-perl weechat-python python3-websocket"
   fi
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PACKAGEMANAGER" == "brew" ]]; then
     install_package "weechat"
   fi
-  if [[ "$PLATFORM" == "arch" ]]; then
+  if [[ "$PACKAGEMANAGER" == "pacman" ]]; then
     install_package "weechat"
     install_package "python-websocket-client"
   fi
 
-  echo "DOING HEADLESS INSTALL STUFF"
   weechat-headless --stdout -r "/set script.scripts.download_enabled on; /exit"
-  echo "INSTALLING SLACK"
   weechat-headless --stdout -r "/script install slack.py; /set plugins.var.python.slack.slack_api_token $BW_SLACK_TOKEN; /exit"
 }
 

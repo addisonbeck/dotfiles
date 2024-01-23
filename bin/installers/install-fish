@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
-
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_fish () {
-  if [[ "$PLATFORM" == "ubuntu" || "$PLATFORM" == "raspbian" ]]; then
+  if [[ "$PACKAGEMANAGER" == "apt" ]]; then
     sudo add-apt-repository ppa:fish-shell/release-3 -y
     update_packages
     install_package fish
   fi
-  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
+  if [[ "$PACKAGEMANAGER" == "brew" || "$PACKAGEMANAGER" == "pacman" ]]; then
     install_package fish
   fi
 }

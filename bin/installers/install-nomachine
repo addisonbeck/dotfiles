@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_no_machine () {
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PACKAGEMANAGER" == "brew" ]]; then
     brew install --cask nomachine
   fi
-  if [[ "$PLATFORM" == "arch" ]]; then
+  if [[ "$PACKAGEMANAGER" == "pacman" ]]; then
     cd ~
     git clone https://aur.archlinux.org/nomachine.git
     cd nomachine

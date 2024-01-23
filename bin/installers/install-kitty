@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_kitty () {
-  if [[ "$PLATFORM" == "mac"* || "$PLATFORM" == "arch" ]]; then
-    install_package kitty
-  fi
+  install_package kitty
 }
 
 install_kitty

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_neovim () {
-  if [[ "$PLATFORM" == "ubuntu"* || "$PLATFORM" == "raspbian" ]]; then
+  if [[ "$PACKAGEMANAGER" == "apt" ]]; then
     install_package build-essential
     install_package ripgrep
     install_package fd-find
@@ -19,7 +19,7 @@ install_neovim () {
     rm -rf ~/nvim-linux64
   fi
 
-  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" || "PACKAGEMANAGER" == "apk" ]]; then
+  if [[ "$PACKAGEMANAGER" == "brew" || "$PACKAGEMANAGER" == "pacman" || "PACKAGEMANAGER" == "apk" ]]; then
     install_package ripgrep
     install_package fd
     install_package gcc

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_bitwarden () {
   if ! command -v unzip
@@ -8,7 +8,7 @@ install_bitwarden () {
     install_package unzip
   fi
 
-  if [[ "$PLATFORM" == "ubuntu"* || "$PLATFORM" == "raspbian"* || "$PLATFORM" == "arch"* ]]; then
+  if [[ "$PACKAGEMANAGER" == "apt" || "$PACAKGEMANAGER" == "pacman" ]]; then
     install_package unzip
     curl -s --location "https://vault.bitwarden.com/download/?app=cli&platform=linux" --output bw.zip
     unzip bw.zip -d . 
@@ -17,7 +17,7 @@ install_bitwarden () {
     rm bw.zip
   fi
 
-  if [[ "$PLATFORM" == "mac"* ]]; then
+  if [[ "$PACKAGEMANAGER" == "brew" ]]; then
     curl -s --location "https://vault.bitwarden.com/download/?app=cli&platform=macos" --output bw.zip
     unzip bw.zip -d . 
     chmod +x bw

@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_starship () {
-  if [[ "$PLATFORM" == "ubuntu" || "$PLATFORM" == "raspbian" ]]; then
+  if [[ "$PACKAGEMANAGER" == "apt" ]]; then
     sudo curl -sS https://starship.rs/install.sh | sudo sh
     touch ~/.config/starship-installed
   fi
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PACKAGEMANAGER" == "brew" ]]; then
     install_package starship
     touch ~/.config/starship-installed
   fi
-  if [[ "$PLATFORM" == "arch" ]]; then
+  if [[ "$PACKAGEMANAGER" == "pacman" ]]; then
     install_package starship
     touch ~/.config/starship-installed
   fi

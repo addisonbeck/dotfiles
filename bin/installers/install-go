@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_go () {
-  if [[ "$PLATFORM" == "ubuntu" ]]; then
+  if [[ "$PACKAGEMANAGER" == "apt" ]]; then
     curl -OL https://golang.org/dl/go1.21.4.linux-amd64.tar.gz
     sudo rm -rf /usr/local/go 
     sudo tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz
     rm go1.21.4.linux-amd64.tar.gz
   fi
-  if [[ "$PLATFORM" == "mac" || "$PLATFORM" == "arch" ]]; then
+  if [[ "$PACKAGEMANAGER" == "brew" || "$PACKAGEMANAGER" == "pacman" ]]; then
     install_package go
   fi
 }

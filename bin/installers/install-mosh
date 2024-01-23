@@ -1,12 +1,12 @@
 #!/usr/bin/bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_mosh () {
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PACKAGEMANAGER" == "brew" ]]; then
     install_package mosh
   fi
-  if [[ "$PLATFORM" == "ubuntu" ]]; then
+  if [[ "$PACKAGEMANAGER" == "apt" ]]; then
     install_package mosh
   fi
 }

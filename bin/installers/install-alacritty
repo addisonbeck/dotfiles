@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_alacritty () {
-  if [[ "$PLATFORM" == "mac"* || "$PLATFORM" == "arch" ]]; then
-    install_package alacritty
-  fi
+  install_package alacritty
 }
 
 install_alacritty

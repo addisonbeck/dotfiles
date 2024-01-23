@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_neomutt () {
-  if [[ "$PLATFORM" == "ubuntu" ]]; then
+  if [[ "$PACKAGEMANAGER" == "apt" ]]; then
     install_package neomutt
   fi
 
-  if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ "$PACKAGEMANAGER" == "brew" ]]; then
     install_package neomutt
   fi
 }

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-source platform
+source $DOTFILES_EX_DIR/installers/installers-core
 
 install_lazygit () {
   install_package lazygit
 }
 
 install_lazygit
-install-git-delta
+d i git-delta

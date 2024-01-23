@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+source $DOTFILES_EX_DIR/installers/installers-core
+
+PACKAGENAME="openssh"
+
+install_openssh () {
+  install_package $PACKAGENAME
+}
+
+install_openssh
+

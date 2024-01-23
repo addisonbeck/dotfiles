@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export DOTFILES_EX_DIR=$(dirname $0)
+
 function process_command () {
   # echo "COMMAND: ${COMMAND}"
   # echo "ARGS: ${ARGS[@]}"
