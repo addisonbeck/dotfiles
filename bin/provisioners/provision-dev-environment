@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# make-swap
+cd ~
+install-bitwarden
+download-env
+source .env
+download-commit-signing-key
+install-tmux
+install-htop
+install-neofetch
+install-gh
+install-fish
+install-starship
+install-dotnet
+install-node
+install-go
+install-nvim
+install-docker
+exec fish
