@@ -2,14 +2,13 @@
 
 OSUSERNAME=me
 
-# Point to alpine's repos for packages
-
-function configure_alpine_repos () {
-  rm /ish -rf
-  echo https://dl-cdn.alpinelinux.org/alpine/v3.14/main > /etc/apk/repositories
-  echo https://dl-cdn.alpinelinux.org/alpine/v3.14/community >> /etc/apk/repositories
-  apk upgrade && apk fix
-}
+# This is only needed if using the default ish file system
+# function configure_alpine_repos () {
+#   rm /ish -rf
+#   echo https://dl-cdn.alpinelinux.org/alpine/v3.14/main > /etc/apk/repositories
+#   echo https://dl-cdn.alpinelinux.org/alpine/v3.14/community >> /etc/apk/repositories
+#   apk upgrade && apk fix
+# }
 
 function set_timezone () {
   timedatectl set-timezone America/Chicago
@@ -47,7 +46,7 @@ function login () {
   su -l $OSUSERNAME
 }
 
-configure_alpine_repos
+# configure_alpine_repos
 set_timezone
 set_hostname
 install_essentials
