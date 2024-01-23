@@ -22,6 +22,7 @@ function install_essentials () {
   apk add openssh
 }
 
+
 function setup_ssh () {
   ssh-keygen -A
   /usr/sbin/sshd
@@ -32,6 +33,21 @@ function setup_ssh () {
 function build_user_directory () {
   mkdir -p /home/$OSUSERNAME/.ssh
   mkdir -p /home/$OSUSERNAME/.cache
+}
+
+create_user () {
+  useradd $OSUSERNAME
+}
+
+remove_sudo_password_requirement () {
+  echo "$OSUSERNAME ALL=(ALL:ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/$OSUSERNAME
+}
+
+set_user_permissions () {
+  chown -R $OSUSERNAME:$OSUSERNAME /home/$OSUSERNAME/
+  chown -R $OSUSERNAME:$OSUSERNAME /home/$OSUSERNAME
+  chmod 700 /home/$OSUSERNAME/.ssh
+  chmod 700 /home/$OSUSERNAME/.cache
 }
 
 function install_self () {
@@ -48,6 +64,9 @@ set_hostname
 install_essentials
 setup_ssh
 build_user_directory
+create_user
+remove_sudo_password_requirement
+set_user_permissions
 install_self
 login
 
