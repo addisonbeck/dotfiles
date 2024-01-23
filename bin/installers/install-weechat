@@ -26,10 +26,12 @@ install_weechat () {
   fi
   if [[ "$PLATFORM" == "arch" ]]; then
     install_package "weechat"
+    install_package "python-websocket-client"
   fi
 
-  weechat-headless --stdout -r "/set script.scripts.download_enabled on; /script install slack.py; /set plugins.var.python.slack.slack_api_token $BW_SLACK_TOKEN; /exit"
+  echo "DOING HEADLESS INSTALL STUFF"
   weechat-headless --stdout -r "/set script.scripts.download_enabled on; /exit"
+  echo "INSTALLING SLACK"
   weechat-headless --stdout -r "/script install slack.py; /set plugins.var.python.slack.slack_api_token $BW_SLACK_TOKEN; /exit"
 }
 

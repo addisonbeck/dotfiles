@@ -45,6 +45,7 @@ setup_pacman () {
   pacman -Syu --noconfirm git
   pacman -Syu --noconfirm base-devel
   pacman -Syu --noconfirm man-db
+  pacman -Syu --noconfirm nftables
 }
 
 install_self () {
