@@ -35,15 +35,15 @@ function build_user_directory () {
   mkdir -p /home/$OSUSERNAME/.cache
 }
 
-create_user () {
+function create_user () {
   useradd $OSUSERNAME
 }
 
-remove_sudo_password_requirement () {
+function remove_sudo_password_requirement () {
   echo "$OSUSERNAME ALL=(ALL:ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/$OSUSERNAME
 }
 
-set_user_permissions () {
+function set_user_permissions () {
   chown -R $OSUSERNAME:$OSUSERNAME /home/$OSUSERNAME/
   chown -R $OSUSERNAME:$OSUSERNAME /home/$OSUSERNAME
   chmod 700 /home/$OSUSERNAME/.ssh
