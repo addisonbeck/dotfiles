@@ -49,6 +49,14 @@ curl -s https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/provisio
 bash main.sh
 ```
 
+To build a user and install from root on a fresh install of fedora:
+
+```bash
+wget https://raw.githubusercontent.com/addisonbeck/dotfiles/main/bin/provisioners/provision-fedora-user \
+--output-document main.sh && \
+ash main.sh
+```
+
 To build a user and install from root on a fresh install of ish shell:
 
 ```bash
