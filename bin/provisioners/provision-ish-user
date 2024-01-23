@@ -25,8 +25,8 @@ function install_essentials () {
 function setup_ssh () {
   ssh-keygen -A
   /usr/sbin/sshd
-  sudo sed -i '/^'"PermitRootLogin"'/d' /etc/ssh/sshd_config
-  sudo echo "PermitRootLogin no" >> /etc/ssh/sshd_config
+  sed -i '/^'"PermitRootLogin"'/d' /etc/ssh/sshd_config
+  echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 }
 
 function build_user_directory () {
