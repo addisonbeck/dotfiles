@@ -10,7 +10,8 @@ require('mason-tool-installer').setup {
     'svelte-language-server',
     'typescript-language-server',
     'vim-language-server',
-    'eslint-lsp'
+    'eslint-lsp',
+    'marksman'
   },
 
   auto_update = true,

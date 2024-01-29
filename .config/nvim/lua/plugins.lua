@@ -24,7 +24,7 @@ require("lazy").setup({
       end
   },
   "neovim/nvim-lspconfig",
-  "tpope/vim-commentary",
+  -- "tpope/vim-commentary",
   "kyazdani42/nvim-web-devicons",
   {
     "nvim-telescope/telescope.nvim", tag = "0.1.5",
@@ -40,7 +40,6 @@ require("lazy").setup({
     dependencies = { 
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzy-native.nvim" },
-      { "camgraff/telescope-tmux.nvim" },
       { "nvim-telescope/telescope-file-browser.nvim" },
     }
   },
@@ -88,5 +87,4 @@ require("lazy").setup({
 })
 
 require('telescope').load_extension('fzy_native')
-require('telescope').load_extension('tmux')
 require('telescope').load_extension('file_browser')
