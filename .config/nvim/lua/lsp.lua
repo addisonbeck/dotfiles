@@ -28,7 +28,8 @@ local simple_servers = {
   'angularls',
   'bashls',
   'csharp_ls',
-  'eslint'
+  'eslint',
+  'marksman'
 }
 
 for _, server in ipairs(simple_servers) do

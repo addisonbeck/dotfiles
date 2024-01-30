@@ -81,8 +81,10 @@ require("lazy").setup({
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim"
   },
-  { 
-    "github/copilot.vim"
+  {
+    'plasticboy/vim-markdown',
+    branch = 'master',
+    require = {'godlygeek/tabular'},
   }
 })
 
