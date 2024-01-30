@@ -110,6 +110,6 @@ vim.api.nvim_set_hl(0, "@markup.heading.3.marker", {
 vim.api.nvim_set_hl(0, "@markup.heading", { 
   -- ctermbg = "green",
   ctermfg = "green",
-  underdotted = true,
+  undercurl = true,
   bold = true,
 })
