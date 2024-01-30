@@ -1,5 +1,4 @@
 :filetype on
-:syntax on
 
 set noconfirm
 set noswapfile
@@ -46,6 +45,3 @@ highlight SpellRare   gui=undercurl cterm=undercurl ctermfg=none ctermbg=none gu
 highlight SpellLocal  gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
 
 set fillchars=eob:\ 
-
-au BufNewFile,BufFilePre,BufRead *.md set conceallevel=2
-au BufNewFile,BufFilePre,BufRead *.md set syntax=markdown

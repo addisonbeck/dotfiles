@@ -24,7 +24,7 @@ require("lazy").setup({
       end
   },
   "neovim/nvim-lspconfig",
-  -- "tpope/vim-commentary",
+  "tpope/vim-commentary",
   "kyazdani42/nvim-web-devicons",
   {
     "nvim-telescope/telescope.nvim", tag = "0.1.5",
@@ -60,6 +60,7 @@ require("lazy").setup({
               "javascript",
               "html",
               "markdown",
+              "markdown_inline",
               "python",
               "rust",
               "svelte",
@@ -67,7 +68,10 @@ require("lazy").setup({
             },
             sync_install = false,
             auto_install = true,
-            highlight = { enable = true },
+            highlight = { 
+              enable = true,
+              additional_vim_regex_highlighting = false,
+            },
             indent = { enable = true },
         })
       end
@@ -81,12 +85,31 @@ require("lazy").setup({
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim"
   },
-  {
-    'plasticboy/vim-markdown',
-    branch = 'master',
-    require = {'godlygeek/tabular'},
-  }
+  --{
+  --  'plasticboy/vim-markdown',
+  --  branch = 'master',
+  --  require = {'godlygeek/tabular'},
+  --}
 })
 
 require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('file_browser')
+
+vim.api.nvim_set_hl(0, "@markup.heading.1.marker", { 
+  ctermfg = "grey"
+})
+
+vim.api.nvim_set_hl(0, "@markup.heading.2.marker", { 
+  ctermfg = "grey"
+})
+
+vim.api.nvim_set_hl(0, "@markup.heading.3.marker", { 
+  ctermfg = "grey"
+})
+
+vim.api.nvim_set_hl(0, "@markup.heading", { 
+  -- ctermbg = "green",
+  ctermfg = "green",
+  underdotted = true,
+  bold = true,
+})
