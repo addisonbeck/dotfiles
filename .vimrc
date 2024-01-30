@@ -26,6 +26,10 @@ set tabstop=2
 set undofile
 set sw=2
 set laststatus=3
+set colorcolumn=80
+set conceallevel=2
+highlight ColorColumn ctermbg=black guibg=black
+
 
 set scl=no
 
@@ -43,5 +47,15 @@ highlight SpellBad    gui=undercurl cterm=undercurl ctermfg=none ctermbg=none gu
 highlight SpellCap    gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
 highlight SpellRare   gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
 highlight SpellLocal  gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
+highlight NonText     ctermfg=11
 
 set fillchars=eob:\ 
+
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+syntax keyword pyKeyword alpha conceal cchar=α
+syntax match Normal '\v<[[:alpha:]_]+[^_[:digit:]]*0>'ms=e conceal cchar=━
+

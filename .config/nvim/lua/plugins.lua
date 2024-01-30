@@ -76,14 +76,26 @@ require("lazy").setup({
         })
       end
   },
-  {
-    "williamboman/mason.nvim"
-  },
-  {
-    "williamboman/mason-lspconfig.nvim"
-  },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim"
+  { "williamboman/mason.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
+  { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+  { "lukas-reineke/virt-column.nvim",
+    opts = {
+    },
+    config = {
+      char="│",
+      virtcolumn="+80",
+      exclude = {
+        filetypes = {
+          "lspinfo",
+          "help",
+          "man", 
+          "TelescropePrompt",
+          "TelescroptResults",
+          "startify",
+        },
+      },
+    },
   },
   --{
   --  'plasticboy/vim-markdown',
@@ -96,20 +108,20 @@ require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('file_browser')
 
 vim.api.nvim_set_hl(0, "@markup.heading.1.marker", { 
-  ctermfg = "grey"
+  ctermfg = 8
 })
 
 vim.api.nvim_set_hl(0, "@markup.heading.2.marker", { 
-  ctermfg = "grey"
+  ctermfg = 8
 })
 
 vim.api.nvim_set_hl(0, "@markup.heading.3.marker", { 
-  ctermfg = "grey"
+  ctermfg = 8
 })
 
 vim.api.nvim_set_hl(0, "@markup.heading", { 
   -- ctermbg = "green",
-  ctermfg = "green",
-  undercurl = true,
-  bold = true,
+  ctermfg = 2,
+  underdashed = true,
+  bold = true
 })
