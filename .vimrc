@@ -27,7 +27,7 @@ set undofile
 set sw=2
 set laststatus=3
 set colorcolumn=80
-set conceallevel=2
+" set conceallevel=2
 highlight ColorColumn ctermbg=black guibg=black
 
 
