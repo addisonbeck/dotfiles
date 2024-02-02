@@ -21,8 +21,14 @@ require("lazy").setup({
           vim.g.startify_custom_header = "startify#center(startify#fortune#cowsay())"
           vim.g.startify_change_to_dir = 1
           vim.g.startify_change_to_vcs_root = 1
+          vim.g.startify_lists = {
+            { 
+              type = 'dir',
+              header = {"   Current Directory "..vim.fn.getcwd()..":"}
+            }
+         }
       end
-  },
+},
   "neovim/nvim-lspconfig",
   "tpope/vim-commentary",
   "kyazdani42/nvim-web-devicons",
@@ -112,6 +118,14 @@ vim.api.nvim_set_hl(0, "@markup.heading.2.marker", {
 })
 
 vim.api.nvim_set_hl(0, "@markup.heading.3.marker", { 
+  ctermfg = 8
+})
+
+vim.api.nvim_set_hl(0, "@markup.heading.4.marker", { 
+  ctermfg = 8
+})
+
+vim.api.nvim_set_hl(0, "@markup.heading.5.marker", { 
   ctermfg = 8
 })
 

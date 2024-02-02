@@ -56,6 +56,5 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
-syntax keyword pyKeyword alpha conceal cchar=α
-syntax match Normal '\v<[[:alpha:]_]+[^_[:digit:]]*0>'ms=e conceal cchar=━
-
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()

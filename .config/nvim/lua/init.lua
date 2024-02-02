@@ -1,4 +1,5 @@
 require('plugins')
+require('highlights')
 require('lsp')
 require('terminal')
 require('mappings')
