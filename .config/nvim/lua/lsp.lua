@@ -1,24 +1,3 @@
-require("mason").setup()
-require("mason-lspconfig").setup()
-require('mason-tool-installer').setup {
-  ensure_installed = {
-    'angular-language-server',
-    'bash-language-server',
-    'csharp-language-server',
-    'gopls',
-    'lua-language-server',
-    'svelte-language-server',
-    'typescript-language-server',
-    'vim-language-server',
-    'eslint-lsp',
-    'marksman'
-  },
-
-  auto_update = true,
-  run_on_start = true,
-  debounce_hours = 5,
-}
-
 local lspconfig = require('lspconfig')
 
 local simple_servers = { 

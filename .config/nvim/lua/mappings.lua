@@ -1,8 +1,0 @@
-local opts = { noremap=true, silent=true }
-local optss = { noremap=true, silent=true, unique=true }
-vim.api.nvim_set_keymap('n', '|', ':Telescope file_browser path=%:p:h hidden=true respect_gitignore=false select_buffer=true use_fd=false<CR>', opts)
-vim.api.nvim_set_keymap('n', '\\', ':Telescope<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Tab>', ':Telescope buffers<CR>', opts)
-vim.api.nvim_set_keymap('n', '<S-Tab>', ':Telescope git_files<CR>', opts)
-vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
