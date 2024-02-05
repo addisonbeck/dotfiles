@@ -17,6 +17,8 @@ set smartcase
 set splitbelow
 set splitright
 set updatetime=300
+set spell 
+set spelllang=en_us
 
 set expandtab
 set smartindent
