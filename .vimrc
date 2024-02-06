@@ -53,10 +53,11 @@ highlight NonText     ctermfg=11
 
 set fillchars=eob:\ 
 
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+nmap <c-k> :wincmd k<CR>
+nmap <c-j> :wincmd j<CR>
+nmap <c-h> :wincmd h<CR>
+nmap <c-l> :wincmd l<CR>
+nmap <c-x> :b#<BAR>bd#<CR>
 
 " set foldmethod=expr
 " set foldexpr=nvim_treesitter#foldexpr()
