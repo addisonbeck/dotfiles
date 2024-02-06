@@ -25,8 +25,29 @@ return {
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
   },
   pickers = {
+    find_files = {
+      show_untracked = true,
+      layout_strategy = "vertical",
+      sorting_strategy = "ascending",
+      layout_config = {
+        width = 0.99,
+        height = 0.99,
+        mirror = true,
+        prompt_position = "top",
+        preview_height = 0.6,
+      },
+    },
     git_files = {
       show_untracked = true,
+      layout_strategy = "vertical",
+      sorting_strategy = "ascending",
+      layout_config = {
+        width = 0.99,
+        height = 0.99,
+        mirror = true,
+        prompt_position = "top",
+        preview_height = 0.6,
+      },
     },
     builtin = {
       include_extensions = true,
