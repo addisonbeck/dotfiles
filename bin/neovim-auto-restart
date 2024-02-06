@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+run_neovim () {
+  nvim;
+  read -p 'Restart? (Y/N): ' inp;
+  if [ "$inp" == "y" ]
+  then
+    run_neovim
+  fi
+}
+
+run_neovim
