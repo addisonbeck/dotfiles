@@ -1,7 +1,7 @@
 return {
   "\\",
   function()
-    require("telescope.builtin").builtin()
+    require "telescope".extensions.file_browser.file_browser()
   end,
-  desc = "Open File Browser",
+  desc = "Open file explorer",
 }

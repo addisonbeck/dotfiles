@@ -60,3 +60,14 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 " set foldmethod=expr
 " set foldexpr=nvim_treesitter#foldexpr()
+"augroup HelpInTabs
+autocmd!
+   autocmd BufEnter *.txt,*.md call HelpInNewTab()
+augroup END
+
+function! HelpInNewTab ()
+  if &buftype == 'help'
+    " convert help window to a tab
+    setlocal buflisted
+  endif
+endfunction

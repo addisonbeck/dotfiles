@@ -21,6 +21,7 @@ local enabled_plugins = {
   require "plugins.quick-comments",
   require "plugins.virtual-column",
   require "plugins.focus-mode",
+  -- require "plugins.session-manager",
 }
 
 require("lazy").setup(enabled_plugins)

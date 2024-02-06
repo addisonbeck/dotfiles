@@ -3,10 +3,16 @@ return {
   config = function()
       vim.g.startify_fortune_use_unicode = 1
       vim.g.startify_custom_header = "startify#center(startify#fortune#cowsay())"
-      vim.g.startify_change_to_dir = 1
+      vim.g.startify_change_to_dir = 0
       vim.g.startify_change_to_vcs_root = 1
+      vim.g.startify_session_persistence = 1
+      vim.g.startify_session_dir = "$HOME/.vim-sessions"
       vim.g.startify_lists = {
-        { 
+        {
+          type = "sessions",
+          header = { "  Sessions" }
+        },
+        {
           type = 'dir',
           header = {"   Current Directory "..vim.fn.getcwd()..":"}
         }
