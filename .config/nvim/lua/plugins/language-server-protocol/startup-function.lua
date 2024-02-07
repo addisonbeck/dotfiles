@@ -8,6 +8,73 @@ return function(_, opts)
   )
 
   local function setup(server)
+    vim.cmd [[
+      hi DiagnosticUnderlineError cterm=undercurl,bold,italic ctermfg=9 guisp=ctermfg
+      hi DiagnosticUnderlineWarn cterm=undercurl,bold,italic ctermfg=11 guisp=ctermfg
+      hi DiagnosticUnderlineHint cterm=undercurl ctermfg=12 guisp=ctermfg
+      hi DiagnosticUnderlineInfo cterm=undercurl ctermfg=12 guisp=ctermfg
+      hi DiagnosticUnderlineOk cterm=undercurl ctermfg=12 guisp=ctermfg
+      hi DiagnosticUnnecessary cterm=undercurl ctermfg=6 guisp=ctermfg
+      highlight NormalFloat ctermbg=0 guibg=ctermbg
+      highlight FloatBorder ctermfg=7 ctermbg=0 guibg=ctermbg guifg=ctermfg
+    ]]
+
+    local border = {
+        {"🭽", "FloatBorder"},
+        {"▔", "FloatBorder"},
+        {"🭾", "FloatBorder"},
+        {"▕", "FloatBorder"},
+        {"🭿", "FloatBorder"},
+        {"▁", "FloatBorder"},
+        {"🭼", "FloatBorder"},
+        {"▏", "FloatBorder"},
+    }
+
+    -- float overrides
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, bopts, ...)
+      bopts = bopts or {}
+      bopts.border = bopts.border or border
+      return orig_util_open_floating_preview(contents, syntax, bopts, ...)
+    end
+
+    vim.diagnostic.config(
+      {
+        virtual_text = {
+          prefix = "",
+          spacing = 0,
+          format = function(diagnostic)
+           if diagnostic.severity == vim.diagnostic.severity.ERROR then
+             return '←🧚'
+           end
+           if diagnostic.severity == vim.diagnostic.severity.WARN then
+             return '←🧚'
+           end
+           if diagnostic.severity == vim.diagnostic.severity.INFO then
+             return '←🧚'
+           end
+           if diagnostic.severity == vim.diagnostic.severity.HINT then
+             return '←🧚'
+           end
+           return diagnostic.message
+          end
+        },
+        float = {
+          source = true,
+          suffix = " ✨",
+          prefix = "🧚 ",
+          header = ""
+        }
+      }
+    )
+
+    -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    --  vim.lsp.handlers.hover, {
+    --    -- Use a sharp border with `FloatBorder` highlights
+    --    border = "single",
+    --  }
+    -- )
+
     local server_opts = vim.tbl_deep_extend("force", {
       capabilities = vim.deepcopy(capabilities),
     }, servers[server] or {})
