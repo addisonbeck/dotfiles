@@ -24,4 +24,36 @@ local enabled_plugins = {
   -- require "plugins.session-manager",
 }
 
+vim.cmd [[
+  hi DiagnosticUnderlineError cterm=undercurl,bold,italic ctermfg=red guisp=ctermfg
+  hi DiagnosticUnderlineWarn cterm=undercurl,bold,italic ctermfg=yellow guisp=ctermfg
+  hi DiagnosticUnderlineHint cterm=undercurl ctermfg=blue guisp=ctermfg
+  hi DiagnosticUnderlineInfo cterm=undercurl ctermfg=cyan guisp=ctermfg
+]]
+
+vim.diagnostic.config(
+  {
+    virtual_text = {
+      prefix = "",
+      spacing = 0,
+      format = function(diagnostic)
+       if diagnostic.severity == vim.diagnostic.severity.ERROR then
+         return '←🧚'
+       end
+       if diagnostic.severity == vim.diagnostic.severity.WARN then
+         return '←🧚'
+       end
+       if diagnostic.severity == vim.diagnostic.severity.HINT then
+         return '←🧚'
+       end
+       if diagnostic.severity == vim.diagnostic.severity.HINT then
+         return '←🧚'
+       end
+       return diagnostic.message
+      end,
+    },
+  }
+)
+
 require("lazy").setup(enabled_plugins)
+
