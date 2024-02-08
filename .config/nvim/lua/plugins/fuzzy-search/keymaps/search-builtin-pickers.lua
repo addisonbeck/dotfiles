@@ -1,5 +1,5 @@
 return {
-  "\\",
+  "|",
   function()
     require("telescope.builtin").builtin()
   end,

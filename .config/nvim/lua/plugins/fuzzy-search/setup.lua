@@ -76,15 +76,21 @@ return {
       layout_strategy = "bottom_pane",
     },
     spell_suggest = {
-      layout_strategy = "vertical",
+      layout_strategy = "cursor",
       results_title = "",
-      prompt_title = "Autocorrect",
+      prompt_title = "",
+      prompt_prefix = "󰓆 ",
       sorting_strategy = "ascending",
       get_status_text = function() return "" end,
       layout_config = {
-        height = 10,
-        width = 60,
+        height = 0.25,
+        width = 0.25,
         prompt_position = "top"
+      },
+      borderchars = {
+        prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+        results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+        preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       },
     },
     lsp_references = {
@@ -151,6 +157,20 @@ return {
         mirror = true,
         prompt_position = "top",
         preview_height = 0.5,
+      },
+    },
+    live_grep = {
+      layout_strategy = "vertical",
+      sorting_strategy = "ascending",
+      entry_prefix = " ",
+      selection_caret = " ",
+      disable_coordinates = true,
+      layout_config = {
+        width = 0.99,
+        height = 0.99,
+        mirror = true,
+        prompt_position = "top",
+        preview_height = 0.7,
       },
     }
   },

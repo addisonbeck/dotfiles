@@ -1,5 +1,5 @@
 return {
-  "<space>gi",
+  "<space>si",
   function()
     require "telescope.builtin".lsp_implementations()
   end,

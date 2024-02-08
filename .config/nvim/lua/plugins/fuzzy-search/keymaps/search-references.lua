@@ -1,5 +1,5 @@
 return {
-  "<space>gr",
+  "<space>sr",
   function()
     require "telescope.builtin".lsp_references()
   end,

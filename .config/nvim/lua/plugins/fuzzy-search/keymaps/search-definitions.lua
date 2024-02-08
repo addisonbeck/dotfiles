@@ -1,5 +1,5 @@
 return {
-  "<space>gd",
+  "<space>sde",
   function()
     require "telescope.builtin".lsp_definitions()
   end,

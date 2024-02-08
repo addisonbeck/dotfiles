@@ -15,8 +15,12 @@ return function(_, opts)
       hi DiagnosticUnderlineInfo cterm=undercurl ctermfg=12 guisp=ctermfg
       hi DiagnosticUnderlineOk cterm=undercurl ctermfg=12 guisp=ctermfg
       hi DiagnosticUnnecessary cterm=undercurl ctermfg=6 guisp=ctermfg
-      highlight NormalFloat ctermbg=0 guibg=ctermbg
-      highlight FloatBorder ctermfg=7 ctermbg=0 guibg=ctermbg guifg=ctermfg
+      hi NormalFloat ctermbg=0 guibg=ctermbg
+      hi FloatBorder ctermfg=7 ctermbg=0 guibg=ctermbg guifg=ctermfg
+      hi Pmenu ctermfg=7 ctermbg=0 guibg=ctermbg guifg=ctermfg
+      hi PmenuSel ctermbg=8 ctermfg=7 guibg=ctermbg guifg=ctermfg
+      hi PmenuSbar ctermbg=0 guibg=ctermbg
+      hi PmenuThumb ctermbg=0 guibg=ctermbg
     ]]
 
     local border = {

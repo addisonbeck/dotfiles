@@ -1,5 +1,6 @@
 :filetype on
 
+set completeopt-=preview
 set noconfirm
 set noswapfile
 set nowrap
@@ -37,7 +38,7 @@ set scl=no
 
 nmap <S-j> <C-d>
 nmap <S-k> <C-u>
-nmap <CR> o<Esc>
+" nmap <CR> o<Esc>
 nmap <S-n> :set nu!<CR>
 nmap j gj
 nmap k gk
@@ -57,7 +58,6 @@ nmap <c-k> :wincmd k<CR>
 nmap <c-j> :wincmd j<CR>
 nmap <c-h> :wincmd h<CR>
 nmap <c-l> :wincmd l<CR>
-nmap <c-x> :b#<BAR>bd#<CR>
 
 " set foldmethod=expr
 " set foldexpr=nvim_treesitter#foldexpr()

@@ -1,5 +1,5 @@
 return {
-  "<space>cd",
+  "<space>sdi",
   function()
     require "telescope.builtin".diagnostics()
   end,
