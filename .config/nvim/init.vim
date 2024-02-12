@@ -1,3 +1,5 @@
+" I can't remember why I did this, but I think it was to support running lua
+" from a .vim file
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
