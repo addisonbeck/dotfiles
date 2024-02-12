@@ -20,6 +20,8 @@ set splitright
 set updatetime=300
 set spell 
 set spelllang=en_us
+set textwidth=77
+set wm=2
 
 set expandtab
 set smartindent
@@ -58,6 +60,8 @@ nmap <c-k> :wincmd k<CR>
 nmap <c-j> :wincmd j<CR>
 nmap <c-h> :wincmd h<CR>
 nmap <c-l> :wincmd l<CR>
+
+command! Bd silent! execute "%bd|e#|bd#"
 
 " set foldmethod=expr
 " set foldexpr=nvim_treesitter#foldexpr()
