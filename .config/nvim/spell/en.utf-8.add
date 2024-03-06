@@ -254,3 +254,12 @@ domain
 Keymap
 keymap
 param
+boolean
+enabledModules
+functionalModules
+Keymapper
+keymappings
+chipotle
+Mayonnaise
+Mayonnaise
+adobo
