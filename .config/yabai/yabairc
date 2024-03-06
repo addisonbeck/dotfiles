@@ -18,8 +18,8 @@ yabai -m config                                 \
     auto_balance                 off            \
     top_padding                  50             \
     bottom_padding               12             \
-    left_padding                 42             \
-    right_padding                42             \
+    left_padding                 22             \
+    right_padding                22             \
     window_gap                   06             \
     layout                       bsp            \
     mouse_modifier               fn             \
