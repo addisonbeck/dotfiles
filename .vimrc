@@ -5,9 +5,9 @@ set noconfirm
 set noswapfile
 set nowrap
 set nofoldenable
-" set termguicolors
+set termguicolors
 set clipboard=unnamed
-set cmdheight=1
+set cmdheight=0
 set hidden
 set ignorecase
 set lazyredraw
@@ -30,11 +30,10 @@ set tabstop=2
 
 set undofile
 set sw=2
-set laststatus=3
-set colorcolumn=80
-" set conceallevel=2
-highlight ColorColumn ctermbg=black guibg=black
+set laststatus=0
+set winbar=%{'#\ '}%f
 
+set fillchars=vert:│,horiz:─,horizdown:┬,horizup:┴,verthoriz:┼,vertleft:┤,vertright:├,wbr:\ ,stl:┴,eob:\ 
 
 set scl=no
 
@@ -45,21 +44,15 @@ nmap <S-n> :set nu!<CR>
 nmap j gj
 nmap k gk
 
-highlight Comment     gui=italic    cterm=italic    ctermfg=none ctermbg=none guifg=grey guibg=none guisp=none
-highlight StatusLine  gui=bold      cterm=bold      ctermfg=none ctermbg=none guibg=none guifg=grey guisp=none
-
-highlight SpellBad    gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
-highlight SpellCap    gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
-highlight SpellRare   gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
-highlight SpellLocal  gui=undercurl cterm=undercurl ctermfg=none ctermbg=none guifg=none guibg=none guisp=red
-highlight NonText     ctermfg=11
-
-set fillchars=eob:\ 
-
 nmap <c-k> :wincmd k<CR>
 nmap <c-j> :wincmd j<CR>
 nmap <c-h> :wincmd h<CR>
 nmap <c-l> :wincmd l<CR>
+
+nnoremap <c-Up>    :resize +2<CR>
+nnoremap <c-Down>  :resize -2<CR>
+nnoremap <c-Left>  :vertical resize -2<CR>
+nnoremap <c-Right> :vertical resize +2<CR>
 
 command! Bd silent! execute "%bd|e#|bd#"
 

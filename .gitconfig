@@ -41,5 +41,5 @@
 [advice]
 	addIgnoredFile = false
 [delta]
-  side-by-side = true
-  line-numbers = false
+  side-by-side = false
+  line-numbers = true
