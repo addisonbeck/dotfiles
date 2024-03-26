@@ -17,12 +17,12 @@ return {
           header = {"   Current Directory "..vim.fn.getcwd()..":"}
         }
      }
-      vim.api.nvim_set_hl(0, "StartifyHeader", { ctermfg = 4, bold = true, })
-      vim.api.nvim_set_hl(0, "StartifyPath", { ctermfg = 6 })
-      vim.api.nvim_set_hl(0, "StartifySlash", { ctermfg = 6 })
-      vim.api.nvim_set_hl(0, "StartifyFile", { ctermfg = 12, bold=true })
-      vim.api.nvim_set_hl(0, "StartifyBracket", { ctermfg = 12 })
-      vim.api.nvim_set_hl(0, "StartifyNumber", { ctermfg = 4, bold=true })
-      vim.api.nvim_set_hl(0, "StartifySection", { ctermfg = 4, bold=true })
+      vim.api.nvim_set_hl(0, "StartifyHeader", { ctermfg = 4, fg = "#65a9b6", bold = true, })
+      vim.api.nvim_set_hl(0, "StartifyPath", { ctermfg = 6, fg = "#848884" })
+      vim.api.nvim_set_hl(0, "StartifySlash", { ctermfg = 6, fg = "#848884" })
+      vim.api.nvim_set_hl(0, "StartifyFile", { ctermfg = 12, fg = "#7daea3", bold=true })
+      vim.api.nvim_set_hl(0, "StartifyBracket", { ctermfg = 12, fg = "#7daea3" })
+      vim.api.nvim_set_hl(0, "StartifyNumber", { ctermfg = 4, fg = "#65a9b6", bold=true })
+      vim.api.nvim_set_hl(0, "StartifySection", { ctermfg = 4, fg = "#65a9b6", bold=true })
   end
 }

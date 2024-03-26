@@ -2,6 +2,7 @@ export PATH=~/bin/$(uname -m):~/bin:~/bin/cloners:~/bin/installers:~/bin/one-lin
 
 export EDITOR="neovim-auto-restart"
 export NODE_OPTIONS="--max-old-space-size=4096"
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
 export LANG=en_US.UTF-8
 export NVM_DIR="$HOME/.nvm" 
