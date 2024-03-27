@@ -8,6 +8,10 @@ do
       shift
       ;;
 
+    n|nix )
+      NIX="true"
+      shift;;
+
     *)
       echo "Option ${1} is not supported by this command"
       shift
@@ -19,3 +23,9 @@ if [ -n "$DEV" ]
 then
   $HOME/bin/windows/ssh-window ssh-dev
 fi
+
+if [ -n "$NIX" ] 
+then
+  $HOME/bin/windows/ssh-window ssh-nix
+fi
+
